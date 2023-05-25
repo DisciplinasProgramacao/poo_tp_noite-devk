@@ -1,13 +1,41 @@
 package codigo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Usuario {
     private String username;
     private String senha;
+    private String tipoCliente = TiposClientes.CLIENTE_REGULAR;
     private List<Serie> seriesAssistidas = new ArrayList<>();
-    private List<Serie> seriesParaAssistir;
+    private List<Serie> seriesParaAssistir = new ArrayList<>();
+    private Map<String, Avaliacao> avaliacoes = new HashMap<>();
+    
+    public void avaliarMidia(String idMidia, int notaAvaliacao, String mensagemAvaliacao) {
+        if (notaAvaliacao < Avaliacao.NOTA_MIN_AVALIACAO|| notaAvaliacao > Avaliacao.NOTA_MAX_AVALIACAO) {
+            return;
+        }
+
+        // Mídia já foi avaliada pelo usuário
+        if (this.avaliacoes.get(idMidia) != null) {
+            return;
+        }
+
+        // Pode avaliar com um comentario
+        if (this.tipoCliente.equals(TiposClientes.CLIENTE_ESPECIALISTA)) {
+            Avaliacao avaliacao = new Avaliacao(idMidia, this.username, notaAvaliacao, mensagemAvaliacao);
+            avaliacoes.put(idMidia, avaliacao);
+        } else {
+            Avaliacao avaliacao = new Avaliacao(idMidia, this.username, notaAvaliacao);
+            avaliacoes.put(idMidia, avaliacao);
+        }
+
+        if (!this.tipoCliente.equals(TiposClientes.CLIENTE_ESPECIALISTA) && avaliacoes.size() >= 5) {
+            this.tipoCliente = TiposClientes.CLIENTE_ESPECIALISTA;
+        }
+    }
 
     public boolean checarCredenciais(String username, String senha) {
         return username.equals(this.username) && senha.equals(this.senha);
