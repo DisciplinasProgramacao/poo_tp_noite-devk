@@ -10,6 +10,7 @@ public class Streaming {
     private HashMap<String, Usuario> usuarios = new HashMap<>();
     private Usuario usuarioLogado;
 
+    //Verifica os dados do usuario pra fazer login
     private void fazerLogin(String username, String senha) {
         Usuario usuario = this.usuarios.get(username);
         if (!usuario.checarCredenciais(username, senha)) {
@@ -17,6 +18,7 @@ public class Streaming {
         }
     }
 
+    //Percorre o array e retorna apenas o genero passado
     private List<Serie> buscarSeriePorGenero(String genero) {
         List<Serie> seriesFiltradas = new ArrayList<>();
 
@@ -28,7 +30,7 @@ public class Streaming {
 
         return seriesFiltradas;
     }
-
+    //Percorre o array e retorna apenas o nome passado
     private List<Serie> buscarSeriePorNome(String nome) {
         List<Serie> seriesFiltradas = new ArrayList<>();
 
@@ -41,6 +43,7 @@ public class Streaming {
         return seriesFiltradas;
     }
 
+    //Percorre o array e retorna apenas o idioma passado
     private List<Serie> buscarSeriePorIdioma(String idioma) {
         List<Serie> seriesFiltradas = new ArrayList<>();
 

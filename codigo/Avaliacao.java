@@ -8,6 +8,7 @@ public class Avaliacao {
     private int notaAvaliacao;
     private String mensagemAvaliacao;
 
+    //Construtores da classe Avaliacao:
     public Avaliacao(String idMidia, String usernameUsuario, int notaAvaliacao) {
         this.idMidia = idMidia;
         this.usernameUsuario = usernameUsuario;
