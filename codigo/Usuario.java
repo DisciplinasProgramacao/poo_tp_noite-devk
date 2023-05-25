@@ -17,7 +17,7 @@ public class Usuario {
         if (notaAvaliacao < Avaliacao.NOTA_MIN_AVALIACAO|| notaAvaliacao > Avaliacao.NOTA_MAX_AVALIACAO) {
             return;
         }
-
+        
         // Mídia já foi avaliada pelo usuário
         if (this.avaliacoes.get(idMidia) != null) {
             return;
