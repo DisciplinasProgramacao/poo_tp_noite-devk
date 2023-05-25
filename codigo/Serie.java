@@ -6,6 +6,8 @@ public class Serie {
     private String genero;
     private String idioma;
     private int numVisualizacoes = 0;
+    private long mediaAvaliacoes = 0;
+    private int numAvaliacoes = 0;
 
     public Serie(int id, String nome, String genero, String idioma) {
         this.id = id;
@@ -14,8 +16,24 @@ public class Serie {
         this.idioma = idioma;
     }
 
+    public void avaliarMidia(int notaAvaliacao) {
+        if (notaAvaliacao < Avaliacao.NOTA_MIN_AVALIACAO || notaAvaliacao > Avaliacao.NOTA_MAX_AVALIACAO) {
+            return;
+        }
+        numAvaliacoes++;
+        recalcularAvaliacaoMedia(notaAvaliacao);
+    }
+
+    private void recalcularAvaliacaoMedia(int notaNovaAvaliacao) {
+        this.mediaAvaliacoes = this.mediaAvaliacoes + ((notaNovaAvaliacao- this.mediaAvaliacoes) / numAvaliacoes);
+    }
+
     public void atualizarNumVisualizacoes() {
         this.numVisualizacoes++;
+    }
+
+    public long getMediaAvaliacoes() {
+        return this.mediaAvaliacoes;
     }
 
     public int getNumVisualizacoes() {
