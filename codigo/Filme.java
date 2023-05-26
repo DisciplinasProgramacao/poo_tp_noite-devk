@@ -11,14 +11,13 @@ public class Filme {
     private String dataLancamento;
     private Double duracao;
 
-
-    //Construtor da classe Filme
-public Filme(int id, String nome, String genero, String idioma, String dataLancamento, Double duracao){
-    this.id = id;
-    this.nome = nome;
-    this.genero = genero;
-    this.idioma = idioma;
-    this.dataLancamento = dataLancamento;
-    this.duracao = duracao;
-}
+    // Construtor da classe Filme
+    public Filme(int id, String nome, String genero, String idioma, String dataLancamento, Double duracao) {
+        this.id = id;
+        this.nome = nome;
+        this.genero = genero;
+        this.idioma = idioma;
+        this.dataLancamento = dataLancamento;
+        this.duracao = duracao;
+    }
 }
