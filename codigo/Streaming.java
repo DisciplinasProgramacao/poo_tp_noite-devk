@@ -14,8 +14,9 @@ public class Streaming {
     private void fazerLogin(String username, String senha) {
         Usuario usuario = this.usuarios.get(username);
         if (!usuario.checarCredenciais(username, senha)) {
-            this.usuarioLogado = usuario;
+            return;
         }
+        this.usuarioLogado = usuario;
     }
 
     //Percorre o array e retorna apenas o genero passado
