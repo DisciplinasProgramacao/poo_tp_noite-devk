@@ -33,7 +33,6 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         }
     }
 
-    @Override
     public Map<String, Usuario> lerArquivosEspectadores() {
         Map<String, Usuario> espectadores = new HashMap<>();
 
@@ -57,7 +56,6 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         }
     }
 
-    @Override
     public Map<String, Serie> lerArquivosSerie() {
         Map<String, Serie> series = new HashMap<>();
 

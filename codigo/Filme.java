@@ -1,7 +1,5 @@
 package codigo;
 
-import javax.xml.crypto.Data;
-
 public class Filme {
     private int id;
     private String nome;
@@ -10,12 +8,12 @@ public class Filme {
     private int numVisualizacoes = 0;
     private long mediaAvaliacoes = 0;
     private int numAvaliacoes = 0;
-    private Data dataLancamento;
+    private String dataLancamento;
     private Double duracao;
 
 
     //Construtor da classe Filme
-public Filme(int id, String nome, String genero, String idioma, Data dataLancamento, Double duracao){
+public Filme(int id, String nome, String genero, String idioma, String dataLancamento, Double duracao){
     this.id = id;
     this.nome = nome;
     this.genero = genero;
