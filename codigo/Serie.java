@@ -9,6 +9,13 @@ public class Serie {
     private long mediaAvaliacoes = 0;
     private int numAvaliacoes = 0;
     private int qtdEpisodios = 0;
+    private String dataLancamento;
+
+    public Serie(String id, String nome, String dataLancamento) {
+        this.id = Integer.parseInt(id);
+        this.nome = nome;
+        this.dataLancamento = dataLancamento;
+    }
 
     //Construtor da classe Serie:
     public Serie(int id, String nome, String genero, String idioma, int qtdEpisodios){
