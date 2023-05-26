@@ -12,7 +12,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
     public Map<String, Audiencia> lerArquivosAudiencia() {
         Map<String, Audiencia> audiencia = new HashMap<>();
 
-        String caminhoArquivo = "C:\\Users\\User\\OneDrive\\Documentos\\arquivospoo\\POO_Audiencia.csv";
+        String caminhoArquivo = "docs/arquivos/POO_Audiencia.csv";
 
         // gerando a leitura de linhas do arquivos
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
@@ -36,7 +36,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
     public Map<String, Usuario> lerArquivosEspectadores() {
         Map<String, Usuario> espectadores = new HashMap<>();
 
-        String caminhoArquivo = "C:\\Users\\User\\OneDrive\\Documentos\\arquivospoo\\POO_Espectadores.csv";
+        String caminhoArquivo = "docs/arquivos/POO_Espectadores.csv";
         // gerando a leitura de linhas do arquivos
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String line = br.readLine();
@@ -59,7 +59,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
     public Map<String, Serie> lerArquivosSerie() {
         Map<String, Serie> series = new HashMap<>();
 
-        String caminhoArquivo = "C:\\Users\\User\\OneDrive\\Documentos\\arquivospoo\\POO_Series.csv";
+        String caminhoArquivo = "docs/arquivos/POO_Series.csv";
         // gerando a leitura de linhas do arquivos
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String line = br.readLine();
