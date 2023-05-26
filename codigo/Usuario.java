@@ -6,12 +6,19 @@ import java.util.List;
 import java.util.Map;
 
 public class Usuario {
+    private String nome;
     private String username;
     private String senha;
     private String tipoCliente = TiposClientes.CLIENTE_REGULAR;
     private List<Serie> seriesAssistidas = new ArrayList<>();
     private List<Serie> seriesParaAssistir = new ArrayList<>();
     private Map<String, Avaliacao> avaliacoes = new HashMap<>();
+
+    public Usuario(String nome, String username, String senha) {
+        this.nome = nome;
+        this.username = username;
+        this.senha = senha;
+    }
     
     public void avaliarMidia(String idMidia, int notaAvaliacao, String mensagemAvaliacao) {
         if (notaAvaliacao < Avaliacao.NOTA_MIN_AVALIACAO|| notaAvaliacao > Avaliacao.NOTA_MAX_AVALIACAO) {
