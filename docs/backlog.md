@@ -1,4 +1,4 @@
-# Backlog do projeto XXX
+# Backlog do projeto Streaming DEVK
 Atualizado em 26/05/2023
 
 ## Tarefas Concluídas e Testadas: 🟢
