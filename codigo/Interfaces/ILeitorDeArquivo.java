@@ -7,7 +7,7 @@ import codigo.Serie;
 import codigo.Usuario;
 
 public interface ILeitorDeArquivo {
-    Map<String, Audiencia> lerArquivosAudiencia();
-    Map<String, Usuario> lerArquivosEspectadores();
-    Map<String, Serie> lerArquivosSerie();
+    Map<String, Audiencia> lerArquivosAudiencia() throws Exception;
+    Map<String, Usuario> lerArquivosEspectadores() throws Exception;
+    Map<String, Serie> lerArquivosSerie() throws Exception;
 }

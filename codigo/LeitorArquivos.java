@@ -9,7 +9,7 @@ import java.util.Map;
 import codigo.Interfaces.ILeitorDeArquivo;
 
 public class LeitorArquivos implements ILeitorDeArquivo {
-    public Map<String, Audiencia> lerArquivosAudiencia() {
+    public Map<String, Audiencia> lerArquivosAudiencia() throws Exception {
         Map<String, Audiencia> audiencia = new HashMap<>();
 
         String caminhoArquivo = "docs/arquivos/POO_Audiencia.csv";
@@ -26,14 +26,14 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 audiencia.put(login, new Audiencia(login, statusAssistido, idSerie));
                 line = br.readLine();
             }
-        } catch (IOException e) {
-            System.out.println("Error writing file: " + e.getMessage());
-        } finally {
+
             return audiencia;
-        }
+        } catch (IOException e) {
+            throw new Exception("Não foi possível realizar a leitura do arquivo de audiência.");
+        } 
     }
 
-    public Map<String, Usuario> lerArquivosEspectadores() {
+    public Map<String, Usuario> lerArquivosEspectadores() throws Exception {
         Map<String, Usuario> espectadores = new HashMap<>();
 
         String caminhoArquivo = "docs/arquivos/POO_Espectadores.csv";
@@ -49,14 +49,14 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 espectadores.put(login, new Usuario(nome, login, senha));
                 line = br.readLine();
             }
-        } catch (IOException e) {
-            System.out.println("Error writing file: " + e.getMessage());
-        } finally {
+
             return espectadores;
+        } catch (IOException e) {
+            throw new Exception("Não foi possível realizar a leitura do arquivo de espectadores.");
         }
     }
 
-    public Map<String, Serie> lerArquivosSerie() {
+    public Map<String, Serie> lerArquivosSerie() throws Exception {
         Map<String, Serie> series = new HashMap<>();
 
         String caminhoArquivo = "docs/arquivos/POO_Series.csv";
@@ -71,11 +71,12 @@ public class LeitorArquivos implements ILeitorDeArquivo {
 
                 series.put(idSerie, new Serie(idSerie, nome, dataLancamento));
                 line = br.readLine();
+
             }
-        } catch (IOException e) {
-            System.out.println("Error writing file: " + e.getMessage());
-        } finally {
+
             return series;
+        } catch (IOException e) {
+            throw new Exception("Não foi possível realizar a leitura do arquivo de séries.");
         }
     }
 }
