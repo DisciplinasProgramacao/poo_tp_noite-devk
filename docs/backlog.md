@@ -27,9 +27,9 @@ Atualizado em 26/05/2023
 | 7. Garantir a robustez do sistema principal   |   Grupo    | ⚪ |
 | 8. Os gêneros de mídias devem ser limitados à esta lista: Ação, Anime, Aventura, Comédia, Documentário, Drama, Policial, Romance e Suspense      |  | 🔴 |
 | 9. Algumas mídias serão marcadas como “Lançamento”. Estas mídias só poderão ser assistidas por clientes “profissionais” – aqueles que, de alguma maneira, trabalham diretamente com mídias – sejam como jornalistas, diretores, atores etc. Estes clientes também podem escrever comentários para as mídias assistidas   |   | 🔴 |
-| 10. Relatorio: Qual cliente assistiu mais mídias, e quantas mídias |   | 🔴 | 
-| 11. Qual cliente tem mais avaliações, e quantas avaliações |   | 🔴 | 
-| 12. Qual a porcentagem dos clientes com pelo menos 15 avaliações |   | 🔴 |
+| 10. Relatorio: Qual cliente assistiu mais mídias, e quantas mídias | Pedro  | 🔴 | 
+| 11. Qual cliente tem mais avaliações, e quantas avaliações | Pedro  | 🔴 | 
+| 12. Qual a porcentagem dos clientes com pelo menos 15 avaliações | Pedro  | 🔴 |
 | 13. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente | Sérgio  | ⚪ | 
 | 14. Quais são as 10 mídias com mais visualizações, em ordem decrescente | Sérgio  | ⚪ |
 | 15. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero | Sérgio  | ⚪ |
