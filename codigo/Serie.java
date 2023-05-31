@@ -1,24 +1,16 @@
 package codigo;
 
-public class Serie {
-    private int id;
-    private String nome;
-    private String genero;
-    private String idioma;
-    private int numVisualizacoes = 0;
-    private long mediaAvaliacoes = 0;
-    private int numAvaliacoes = 0;
+public class Serie extends Conteudo {
     private int qtdEpisodios = 0;
-    private String dataLancamento;
 
-    public Serie(String id, String nome, String dataLancamento) {
+    public Serie(String id, String nome, String genero, String idioma, String dataLancamento) {
         this.id = Integer.parseInt(id);
         this.nome = nome;
         this.dataLancamento = dataLancamento;
     }
 
-    //Construtor da classe Serie:
-    public Serie(int id, String nome, String genero, String idioma, int qtdEpisodios){
+    // Construtor da classe Serie:
+    public Serie(int id, String nome, String genero, String idioma, int qtdEpisodios) {
         this.id = id;
         this.nome = nome;
         this.genero = genero;
@@ -26,7 +18,7 @@ public class Serie {
         this.qtdEpisodios = qtdEpisodios;
     }
 
-    //Se tiver avaliaçao incrementa a quantidade
+    // Se tiver avaliaçao incrementa a quantidade
     public void avaliarMidia(int notaAvaliacao) {
         if (notaAvaliacao < Avaliacao.NOTA_MIN_AVALIACAO || notaAvaliacao > Avaliacao.NOTA_MAX_AVALIACAO) {
             return;
@@ -35,9 +27,9 @@ public class Serie {
         recalcularAvaliacaoMedia(notaAvaliacao);
     }
 
-    //Soma as notas e divide pela quantidade = Média de avaliações
+    // Soma as notas e divide pela quantidade = Média de avaliações
     private void recalcularAvaliacaoMedia(int notaNovaAvaliacao) {
-        this.mediaAvaliacoes = this.mediaAvaliacoes + ((notaNovaAvaliacao- this.mediaAvaliacoes) / numAvaliacoes);
+        this.mediaAvaliacoes = this.mediaAvaliacoes + ((notaNovaAvaliacao - this.mediaAvaliacoes) / numAvaliacoes);
     }
 
     public void atualizarNumVisualizacoes() {

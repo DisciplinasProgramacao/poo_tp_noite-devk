@@ -31,7 +31,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
             return audiencia;
         } catch (IOException e) {
             throw new Exception("Não foi possível realizar a leitura do arquivo de audiência.");
-        } 
+        }
     }
 
     public Map<String, Cliente> lerArquivosEspectadores() throws Exception {
@@ -57,8 +57,8 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         }
     }
 
-    public Map<String, Serie> lerArquivosSerie() throws Exception {
-        Map<String, Serie> series = new HashMap<>();
+    public Map<String, Conteudo> lerArquivosSerie() throws Exception {
+        Map<String, Conteudo> series = new HashMap<>();
 
         String caminhoArquivo = "docs/arquivos/POO_Series.csv";
         // gerando a leitura de linhas do arquivos
@@ -70,7 +70,10 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 String nome = fields[1];
                 String dataLancamento = fields[2];
 
-                series.put(idSerie, new Serie(idSerie, nome, dataLancamento));
+                String genero = GerarDados.obterGeneroAleatorio();
+                String idioma = GerarDados.obterIdiomaAleatorio();
+
+                series.put(idSerie, new Serie(idSerie, nome, genero, idioma, dataLancamento));
                 line = br.readLine();
 
             }
@@ -78,6 +81,33 @@ public class LeitorArquivos implements ILeitorDeArquivo {
             return series;
         } catch (IOException e) {
             throw new Exception("Não foi possível realizar a leitura do arquivo de séries.");
+        }
+    }
+
+    public Map<String, Conteudo> lerArquivosFilme() throws Exception {
+        Map<String, Conteudo> filmes = new HashMap<>();
+
+        String caminhoArquivo = "docs/arquivos/POO_Filmes.csv";
+        // gerando a leitura de linhas do arquivos
+        try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
+            String line = br.readLine();
+            while (line != null) {
+                String[] fields = line.split(";");
+                String idFilme = fields[0];
+                String nome = fields[1];
+                String dataLancamento = fields[2];
+                String duracaoEmMin = fields[3];
+
+                String genero = GerarDados.obterGeneroAleatorio();
+                String idioma = GerarDados.obterIdiomaAleatorio();
+
+                filmes.put(idFilme, new Filme(idFilme, nome, genero, idioma, dataLancamento, duracaoEmMin));
+                line = br.readLine();
+            }
+
+            return filmes;
+        } catch (IOException e) {
+            throw new Exception("Não foi possível realizar a leitura do arquivo de filmes.");
         }
     }
 }

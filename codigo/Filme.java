@@ -1,23 +1,19 @@
 package codigo;
 
-public class Filme {
-    private int id;
-    private String nome;
-    private String genero;
-    private String idioma;
-    private int numVisualizacoes = 0;
-    private long mediaAvaliacoes = 0;
-    private int numAvaliacoes = 0;
-    private String dataLancamento;
-    private Double duracao;
+public class Filme extends Conteudo {
+    private double duracao;
 
     // Construtor da classe Filme
-    public Filme(int id, String nome, String genero, String idioma, String dataLancamento, Double duracao) {
-        this.id = id;
+    public Filme(String id, String nome, String genero, String idioma, String dataLancamento, String duracao) {
+        this.id = Integer.parseInt(id);
         this.nome = nome;
-        this.genero = genero;
-        this.idioma = idioma;
         this.dataLancamento = dataLancamento;
-        this.duracao = duracao;
+        this.duracao = converterDuracaoDeMinutosParaSegundos(Double.parseDouble(duracao));
+    }
+
+    // Converte a duração do filme de minutos para segundos, já que a duração deve
+    // ser armazenada em segundos
+    private double converterDuracaoDeMinutosParaSegundos(double duracao) {
+        return duracao * 60;
     }
 }
