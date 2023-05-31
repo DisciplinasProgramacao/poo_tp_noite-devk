@@ -31,28 +31,4 @@ public class Serie extends Conteudo {
     private void recalcularAvaliacaoMedia(int notaNovaAvaliacao) {
         this.mediaAvaliacoes = this.mediaAvaliacoes + ((notaNovaAvaliacao - this.mediaAvaliacoes) / numAvaliacoes);
     }
-
-    public void atualizarNumVisualizacoes() {
-        this.numVisualizacoes++;
-    }
-
-    public long getMediaAvaliacoes() {
-        return this.mediaAvaliacoes;
-    }
-
-    public int getNumVisualizacoes() {
-        return this.numVisualizacoes;
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public String getGenero() {
-        return this.genero;
-    }
-
-    public String getIdioma() {
-        return this.idioma;
-    }
 }

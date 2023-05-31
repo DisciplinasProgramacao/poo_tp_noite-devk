@@ -9,9 +9,8 @@ public abstract class Cliente {
     protected String nome;
     protected String username;
     protected String senha;
-    protected String tipoCliente = TiposClientes.CLIENTE_REGULAR;
-    protected List<Serie> seriesAssistidas = new ArrayList<>();
-    protected List<Serie> seriesParaAssistir = new ArrayList<>();
+    protected List<Conteudo> conteudosAssistidos = new ArrayList<>();
+    protected List<Conteudo> conteudosParaAssistir = new ArrayList<>();
     protected Map<String, Avaliacao> avaliacoes = new HashMap<>();
 
     public Cliente(String nome, String username, String senha) {
@@ -19,100 +18,100 @@ public abstract class Cliente {
         this.username = username;
         this.senha = senha;
     }
-    
+
     public abstract void avaliarMidia(String idMidia, int notaAvaliacao, String mensagemAvaliacao);
 
     public boolean checarCredenciais(String username, String senha) {
         return username.equals(this.username) && senha.equals(this.senha);
     }
 
-    public void assistirSerie(Serie serie) {
-        if (!this.seriesAssistidas.contains(serie)) {
-            this.seriesAssistidas.add(serie);
+    public void assistirConteudo(Conteudo conteudo) {
+        if (!this.conteudosAssistidos.contains(conteudo)) {
+            this.conteudosAssistidos.add(conteudo);
         }
     }
 
-    public void adicionarListaSeriesParaAssistir(Serie serie) {
-        if (!this.seriesParaAssistir.contains(serie)) {
-            this.seriesParaAssistir.add(serie);
+    public void adicionarListaConteudoParaAssistir(Conteudo conteudo) {
+        if (!this.conteudosParaAssistir.contains(conteudo)) {
+            this.conteudosParaAssistir.add(conteudo);
         }
     }
 
-    public void removerListaSeriesParaAssistir(Serie serie) {
-        if (this.seriesParaAssistir.contains(serie)) {
-            this.seriesParaAssistir.remove(serie);
+    public void removerListaConteudosParaAssistir(Serie serie) {
+        if (this.conteudosParaAssistir.contains(serie)) {
+            this.conteudosParaAssistir.remove(serie);
         }
     }
 
-    public List<Serie> buscarSerieAssistidaPorGenero(String genero) {
-        List<Serie> seriesFiltradas = new ArrayList<>();
+    public List<Conteudo> buscarConteudoAssistidoPorGenero(String genero) {
+        List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
-        for (Serie serie : this.seriesAssistidas) {
-            if (serie.getGenero().equals(genero)) {
-                seriesFiltradas.add(serie);
+        for (Conteudo conteudo : this.conteudosAssistidos) {
+            if (conteudo.getGenero().equals(genero)) {
+                conteudosFiltrados.add(conteudo);
             }
         }
 
-        return seriesFiltradas;
+        return conteudosFiltrados;
     }
 
-    public List<Serie> buscarSerieAssistidaPorNome(String nome) {
-        List<Serie> seriesFiltradas = new ArrayList<>();
+    public List<Conteudo> buscarConteudoAssistidoPorNome(String nome) {
+        List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
-        for (Serie serie : this.seriesAssistidas) {
-            if (serie.getGenero().equals(nome)) {
-                seriesFiltradas.add(serie);
+        for (Conteudo conteudo : this.conteudosAssistidos) {
+            if (conteudo.getGenero().equals(nome)) {
+                conteudosFiltrados.add(conteudo);
             }
         }
 
-        return seriesFiltradas;
+        return conteudosFiltrados;
     }
 
-    public List<Serie> buscarSerieAssistidaPorIdioma(String idioma) {
-        List<Serie> seriesFiltradas = new ArrayList<>();
+    public List<Conteudo> buscarConteudoAssistidoPorIdioma(String idioma) {
+        List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
-        for (Serie serie : this.seriesAssistidas) {
-            if (serie.getIdioma().equals(idioma)) {
-                seriesFiltradas.add(serie);
+        for (Conteudo conteudo : this.conteudosAssistidos) {
+            if (conteudo.getIdioma().equals(idioma)) {
+                conteudosFiltrados.add(conteudo);
             }
         }
 
-        return seriesFiltradas;
+        return conteudosFiltrados;
     }
 
-    public List<Serie> buscarSerieParaAssistirPorGenero(String genero) {
-        List<Serie> seriesFiltradas = new ArrayList<>();
+    public List<Conteudo> buscarConteudoParaAssistirPorGenero(String genero) {
+        List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
-        for (Serie serie : this.seriesParaAssistir) {
-            if (serie.getGenero().equals(genero)) {
-                seriesFiltradas.add(serie);
+        for (Conteudo conteudo : this.conteudosParaAssistir) {
+            if (conteudo.getGenero().equals(genero)) {
+                conteudosFiltrados.add(conteudo);
             }
         }
 
-        return seriesFiltradas;
+        return conteudosFiltrados;
     }
 
-    public List<Serie> buscarSerieParaAssistirPorNome(String nome) {
-        List<Serie> seriesFiltradas = new ArrayList<>();
+    public List<Conteudo> buscarConteudoParaAssistirPorNome(String nome) {
+        List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
-        for (Serie serie : this.seriesParaAssistir) {
-            if (serie.getGenero().equals(nome)) {
-                seriesFiltradas.add(serie);
+        for (Conteudo conteudo : this.conteudosParaAssistir) {
+            if (conteudo.getGenero().equals(nome)) {
+                conteudosFiltrados.add(conteudo);
             }
         }
 
-        return seriesFiltradas;
+        return conteudosFiltrados;
     }
 
-    public List<Serie> buscarSerieParaAssistirPorIdioma(String idioma) {
-        List<Serie> seriesFiltradas = new ArrayList<>();
+    public List<Conteudo> buscarConteudoParaAssistirPorIdioma(String idioma) {
+        List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
-        for (Serie serie : this.seriesParaAssistir) {
-            if (serie.getIdioma().equals(idioma)) {
-                seriesFiltradas.add(serie);
+        for (Conteudo conteudo : this.conteudosParaAssistir) {
+            if (conteudo.getIdioma().equals(idioma)) {
+                conteudosFiltrados.add(conteudo);
             }
         }
 
-        return seriesFiltradas;
+        return conteudosFiltrados;
     }
 }
