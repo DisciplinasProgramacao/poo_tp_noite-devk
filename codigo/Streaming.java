@@ -7,12 +7,12 @@ import java.util.Map;
 
 public class Streaming {
     private HashMap<Integer, Serie> series = new HashMap<>();
-    private HashMap<String, Usuario> usuarios = new HashMap<>();
-    private Usuario usuarioLogado;
+    private HashMap<String, Cliente> usuarios = new HashMap<>();
+    private Cliente usuarioLogado;
 
     //Verifica os dados do usuario pra fazer login
     private void fazerLogin(String username, String senha) {
-        Usuario usuario = this.usuarios.get(username);
+        Cliente usuario = this.usuarios.get(username);
         if (!usuario.checarCredenciais(username, senha)) {
             return;
         }

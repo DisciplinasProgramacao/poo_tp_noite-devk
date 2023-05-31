@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import codigo.Clientes.ClienteRegular;
 import codigo.Interfaces.ILeitorDeArquivo;
 
 public class LeitorArquivos implements ILeitorDeArquivo {
@@ -33,8 +34,8 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         } 
     }
 
-    public Map<String, Usuario> lerArquivosEspectadores() throws Exception {
-        Map<String, Usuario> espectadores = new HashMap<>();
+    public Map<String, Cliente> lerArquivosEspectadores() throws Exception {
+        Map<String, Cliente> espectadores = new HashMap<>();
 
         String caminhoArquivo = "docs/arquivos/POO_Espectadores.csv";
         // gerando a leitura de linhas do arquivos
@@ -46,7 +47,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 String login = fields[1];
                 String senha = fields[2];
 
-                espectadores.put(login, new Usuario(nome, login, senha));
+                espectadores.put(login, new ClienteRegular(nome, login, senha));
                 line = br.readLine();
             }
 
