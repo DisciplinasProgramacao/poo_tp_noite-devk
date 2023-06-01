@@ -25,7 +25,7 @@ Atualizado em 26/05/2023
 | 5. Atualização do diagrama original para contemplar requisito de avaliação   |   Lucas  | ⚪ |
 | 6. Implementação do protótipo de sistema cobrindo os requisitos   |   Grupo    | ⚪ |
 | 7. Garantir a robustez do sistema principal   |   Grupo    | ⚪ |
-| 8. Os gêneros de mídias devem ser limitados à esta lista: Ação, Anime, Aventura, Comédia, Documentário, Drama, Policial, Romance e Suspense      |  | 🔴 |
+| 8. Os gêneros de mídias devem ser limitados à esta lista: Ação, Anime, Aventura, Comédia, Documentário, Drama, Policial, Romance e Suspense      |  | 🟢 |
 | 9. Algumas mídias serão marcadas como “Lançamento”. Estas mídias só poderão ser assistidas por clientes “profissionais” – aqueles que, de alguma maneira, trabalham diretamente com mídias – sejam como jornalistas, diretores, atores etc. Estes clientes também podem escrever comentários para as mídias assistidas   |   | 🔴 |
 | 10. Relatorio: Qual cliente assistiu mais mídias, e quantas mídias | Pedro  | 🔴 | 
 | 11. Qual cliente tem mais avaliações, e quantas avaliações | Pedro  | 🔴 | 
