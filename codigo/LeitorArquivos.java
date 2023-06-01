@@ -14,7 +14,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         Map<String, Audiencia> audiencia = new HashMap<>();
 
         String caminhoArquivo = "docs/arquivos/POO_Audiencia.csv";
-
+        
         // gerando a leitura de linhas do arquivos
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String line = br.readLine();
