@@ -4,9 +4,9 @@ import codigo.Avaliacao;
 import codigo.Cliente;
 import codigo.Conteudo;
 
-public class ClienteEspecialista extends Cliente {
+public class ClienteProfissional extends Cliente {
 
-    public ClienteEspecialista(String nome, String username, String senha) {
+    public ClienteProfissional(String nome, String username, String senha) {
         super(nome, username, senha);
     }
 
@@ -19,13 +19,9 @@ public class ClienteEspecialista extends Cliente {
         if (this.avaliacoes.get(midia.getId()) != null)
             return;
 
-        if (midia.getEhLancamento())
-            return;
-
         midia.avaliarMidia(notaAvaliacao);
 
         Avaliacao avaliacao = new Avaliacao(midia.getId(), this.username, notaAvaliacao, mensagemAvaliacao);
         avaliacoes.put(midia.getId(), avaliacao);
     }
-
 }
