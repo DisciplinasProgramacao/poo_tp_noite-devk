@@ -23,11 +23,11 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 String idConteudo = fields[2];
 
                 Cliente cliente = clientes.get(login);
-
+                
                 String statusAssistidoFuturamente = "F";
                 String statusConteudoAssistido = "A";
                 Conteudo conteudo = conteudos.get(idConteudo);
-
+                
                 if (statusAssistido.equals(statusAssistidoFuturamente)) {
                     cliente.adicionarListaConteudoParaAssistir(conteudo);
                 } else if (statusAssistido.equals(statusConteudoAssistido)) {

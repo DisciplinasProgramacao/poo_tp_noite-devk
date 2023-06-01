@@ -13,6 +13,12 @@ public abstract class Cliente {
     protected List<Conteudo> conteudosParaAssistir = new ArrayList<>();
     protected Map<String, Avaliacao> avaliacoes = new HashMap<>();
 
+    public Cliente(String username) {
+        this.username = username;
+      
+    }
+    
+    
     public Cliente(String nome, String username, String senha) {
         this.nome = nome;
         this.username = username;
