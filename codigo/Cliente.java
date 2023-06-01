@@ -15,17 +15,16 @@ public abstract class Cliente {
 
     public Cliente(String username) {
         this.username = username;
-      
+
     }
-    
-    
+
     public Cliente(String nome, String username, String senha) {
         this.nome = nome;
         this.username = username;
         this.senha = senha;
     }
 
-    public abstract void avaliarMidia(String idMidia, int notaAvaliacao, String mensagemAvaliacao);
+    public abstract void avaliarMidia(Conteudo midia, int notaAvaliacao, String mensagemAvaliacao);
 
     public boolean checarCredenciais(String username, String senha) {
         return username.equals(this.username) && senha.equals(this.senha);

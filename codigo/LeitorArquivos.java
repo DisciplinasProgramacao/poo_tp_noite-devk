@@ -12,7 +12,7 @@ import codigo.Interfaces.ILeitorDeArquivo;
 public class LeitorArquivos implements ILeitorDeArquivo {
     public void lerArquivosAudiencia(Map<String, Cliente> clientes, Map<String, Conteudo> conteudos) throws Exception {
         String caminhoArquivo = "docs/arquivos/POO_Audiencia.csv";
-        
+
         // gerando a leitura de linhas do arquivos
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String line = br.readLine();
@@ -23,11 +23,11 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 String idConteudo = fields[2];
 
                 Cliente cliente = clientes.get(login);
-                
+
                 String statusAssistidoFuturamente = "F";
                 String statusConteudoAssistido = "A";
                 Conteudo conteudo = conteudos.get(idConteudo);
-                
+
                 if (statusAssistido.equals(statusAssistidoFuturamente)) {
                     cliente.adicionarListaConteudoParaAssistir(conteudo);
                 } else if (statusAssistido.equals(statusConteudoAssistido)) {
@@ -108,7 +108,8 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 String genero = GerarDados.obterGeneroAleatorio();
                 String idioma = GerarDados.obterIdiomaAleatorio();
 
-                todosConteudos.put(idFilme, new Filme(idFilme, nome, genero, idioma, dataLancamento, duracaoEmMin));
+                todosConteudos.put(idFilme,
+                        new Filme(idFilme, nome, genero, idioma, dataLancamento, duracaoEmMin, false));
                 line = br.readLine();
             }
 
