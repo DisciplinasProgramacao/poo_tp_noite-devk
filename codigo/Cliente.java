@@ -26,6 +26,10 @@ public abstract class Cliente {
 
     public abstract void avaliarMidia(Conteudo midia, int notaAvaliacao, String mensagemAvaliacao);
 
+    public int obterQuantidadeMidiasAssistidas() {
+        return this.conteudosAssistidos.size();
+    }
+
     public boolean checarCredenciais(String username, String senha) {
         return username.equals(this.username) && senha.equals(this.senha);
     }
