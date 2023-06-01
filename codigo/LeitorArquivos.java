@@ -10,9 +10,7 @@ import codigo.Clientes.ClienteRegular;
 import codigo.Interfaces.ILeitorDeArquivo;
 
 public class LeitorArquivos implements ILeitorDeArquivo {
-    public Map<String, Audiencia> lerArquivosAudiencia() throws Exception {
-        Map<String, Audiencia> audiencia = new HashMap<>();
-
+    public void lerArquivosAudiencia(Map<String, Cliente> clientes, Map<String, Conteudo> conteudos) throws Exception {
         String caminhoArquivo = "docs/arquivos/POO_Audiencia.csv";
         
         // gerando a leitura de linhas do arquivos
@@ -22,13 +20,22 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 String[] fields = line.split(";");
                 String login = fields[0];
                 String statusAssistido = fields[1];
-                String idSerie = fields[2];
+                String idConteudo = fields[2];
 
-                audiencia.put(login, new Audiencia(login, statusAssistido, idSerie));
+                Cliente cliente = clientes.get(login);
+
+                String statusAssistidoFuturamente = "F";
+                String statusConteudoAssistido = "A";
+                Conteudo conteudo = conteudos.get(idConteudo);
+
+                if (statusAssistido.equals(statusAssistidoFuturamente)) {
+                    cliente.adicionarListaConteudoParaAssistir(conteudo);
+                } else if (statusAssistido.equals(statusConteudoAssistido)) {
+                    cliente.assistirConteudo(conteudo);
+                }
+
                 line = br.readLine();
             }
-
-            return audiencia;
         } catch (IOException e) {
             throw new Exception("Não foi possível realizar a leitura do arquivo de audiência.");
         }
@@ -84,8 +91,8 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         }
     }
 
-    public Map<String, Conteudo> lerArquivosFilme() throws Exception {
-        Map<String, Conteudo> filmes = new HashMap<>();
+    public Map<String, Conteudo> lerArquivosFilme(Map<String, Conteudo> conteudos) throws Exception {
+        Map<String, Conteudo> todosConteudos = conteudos;
 
         String caminhoArquivo = "docs/arquivos/POO_Filmes.csv";
         // gerando a leitura de linhas do arquivos
@@ -101,11 +108,11 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 String genero = GerarDados.obterGeneroAleatorio();
                 String idioma = GerarDados.obterIdiomaAleatorio();
 
-                filmes.put(idFilme, new Filme(idFilme, nome, genero, idioma, dataLancamento, duracaoEmMin));
+                todosConteudos.put(idFilme, new Filme(idFilme, nome, genero, idioma, dataLancamento, duracaoEmMin));
                 line = br.readLine();
             }
 
-            return filmes;
+            return todosConteudos;
         } catch (IOException e) {
             throw new Exception("Não foi possível realizar a leitura do arquivo de filmes.");
         }
