@@ -10,10 +10,19 @@ import codigo.Clientes.ClienteRegular;
 import codigo.Interfaces.ILeitorDeArquivo;
 
 public class LeitorArquivos implements ILeitorDeArquivo {
+    /**
+     * Método utilizado para realizar a leitura e configuração inicial do arquivo de
+     * audiência.
+     * 
+     * @param clientes  O mapa de clientes em que deve ser populado a audiência.
+     * @param conteudos O conteúdo em que deve ser adicionado a instância do
+     *                  cliente.
+     * @throws Exception Lançada no caso em que não foi possível
+     *                   realizar a leitura do arquivo.
+     */
     public void lerArquivosAudiencia(Map<String, Cliente> clientes, Map<String, Conteudo> conteudos) throws Exception {
         String caminhoArquivo = "docs/arquivos/POO_Audiencia.csv";
 
-        // gerando a leitura de linhas do arquivos
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String line = br.readLine();
             while (line != null) {
@@ -41,11 +50,19 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         }
     }
 
+    /**
+     * Método utilizado para realizar a leitura e configuração inicial do arquivo de
+     * espectadores.
+     * 
+     * @throws Exception Lançada no caso em que não foi possível realizar a
+     *                   leitura do arquivo.
+     * @return O mapa populado com os dados do arquivo de texto.
+     */
     public Map<String, Cliente> lerArquivosEspectadores() throws Exception {
         Map<String, Cliente> espectadores = new HashMap<>();
 
         String caminhoArquivo = "docs/arquivos/POO_Espectadores.csv";
-        // gerando a leitura de linhas do arquivos
+
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String line = br.readLine();
             while (line != null) {
@@ -64,11 +81,19 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         }
     }
 
+    /**
+     * Método utilizado para realizar a leitura e configuração inicial do arquivo de
+     * séries.
+     * 
+     * @throws Exception Lançada no caso em que não foi possível realizar a
+     *                   leitura do arquivo.
+     * @return O mapa populado com os dados do arquivo de texto.
+     */
     public Map<String, Conteudo> lerArquivosSerie() throws Exception {
         Map<String, Conteudo> series = new HashMap<>();
 
         String caminhoArquivo = "docs/arquivos/POO_Series.csv";
-        // gerando a leitura de linhas do arquivos
+
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String line = br.readLine();
             while (line != null) {
@@ -91,11 +116,19 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         }
     }
 
+    /**
+     * Método utilizado para realizar a leitura e configuração inicial do arquivo de
+     * filmes.
+     * 
+     * @throws Exception Lançada no caso em que não foi possível realizar a
+     *                   leitura do arquivo.
+     * @return O mapa populado com os dados do arquivo de texto.
+     */
     public Map<String, Conteudo> lerArquivosFilme(Map<String, Conteudo> conteudos) throws Exception {
         Map<String, Conteudo> todosConteudos = conteudos;
 
         String caminhoArquivo = "docs/arquivos/POO_Filmes.csv";
-        // gerando a leitura de linhas do arquivos
+
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String line = br.readLine();
             while (line != null) {

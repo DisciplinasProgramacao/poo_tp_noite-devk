@@ -8,13 +8,27 @@ public class Avaliacao {
     private int notaAvaliacao;
     private String mensagemAvaliacao;
 
-    //Construtores da classe Avaliacao:
+    /**
+     * Construtor da classe de Avaliacao
+     * 
+     * @param idMidia         O id da mídia avaliada nessa avaliação
+     * @param usernameUsuario O nome do usuário que realizou a avaliação
+     * @param notaAvaliacao   A nota dada pelo avaliador
+     */
     public Avaliacao(String idMidia, String usernameUsuario, int notaAvaliacao) {
         this.idMidia = idMidia;
         this.usernameUsuario = usernameUsuario;
         this.notaAvaliacao = notaAvaliacao;
     }
 
+    /**
+     * Construtor da classe de Avaliacao
+     * 
+     * @param idMidia           O id da mídia avaliada nessa avaliação
+     * @param usernameUsuario   O nome do usuário que realizou a avaliação
+     * @param notaAvaliacao     A nota dada pelo usuário
+     * @param mensagemAvaliacao A mensagem de avaliação deixada pelo avaliador.
+     */
     public Avaliacao(String idMidia, String usernameUsuario, int notaAvaliacao, String mensagemAvaliacao) {
         this(idMidia, usernameUsuario, notaAvaliacao);
         this.mensagemAvaliacao = mensagemAvaliacao;

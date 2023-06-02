@@ -9,6 +9,19 @@ import codigo.CustomTypes.ClientesComMaisMidiasAssistidas;
 import codigo.Interfaces.IRelatorio;
 
 public class Relatorio implements IRelatorio {
+    /**
+     * Método de obtenção dos clientes com maior quantidade de mídias assistidos,
+     * retornando uma lista dos mesmos e a quantidade de mídias assistidas. É
+     * utilizada uma lista devido ao caso de clientes com o mesmo número de mídias
+     * assistidas.
+     * 
+     * @param clientes O mapa de clientes em que deseja verificar o cliente com
+     *                 maior número de mídias assistidas
+     * @return ClientesComMaisMidiasAssistidas, contendo uma lista com todos os
+     *         clientes que mais assistiram mídia. É retornado uma lista devido ao
+     *         caso de clientes com o mesmo número de mídias assistidas,
+     *         possibilitando o retorno de todos.
+     */
     public ClientesComMaisMidiasAssistidas obterClientesComMaisMidias(Map<String, Cliente> clientes) {
         int maiorNumeroMidiasAssistidas = -1;
         List<Cliente> clientesQueMaisAssistiram = new ArrayList<>();
