@@ -35,6 +35,7 @@ Atualizado em 26/05/2023
 | 15. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero | Sérgio  | ⚪ |
 | 16. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Sérgio  | ⚪ |
 | 17. Implementação da Classe APP/Main com a opção de execução de todos os requisitos do sistema    | Sérgio  | ⚪ |
+| 18. Documentação JavaDoc do código | Lucas | 🟢 |
 ----
 
 
