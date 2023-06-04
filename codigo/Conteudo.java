@@ -38,6 +38,10 @@ public abstract class Conteudo {
         this.mediaAvaliacoes = this.mediaAvaliacoes + ((notaNovaAvaliacao - this.mediaAvaliacoes) / numAvaliacoes);
     }
 
+    public int getNumVisualizacoes() {
+        return this.numVisualizacoes;
+    }
+
     public boolean getEhLancamento() {
         return this.ehLancamento;
     }

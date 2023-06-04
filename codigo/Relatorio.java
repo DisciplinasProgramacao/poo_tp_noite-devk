@@ -2,6 +2,7 @@ package codigo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -92,5 +93,24 @@ public class Relatorio implements IRelatorio {
             return 0;
 
         return (double) qtdClientesComNumeroMinAvaliacoes / clientes.size() * 100.0;
+    }
+
+    /**
+     * Método para obtenção dos conteúdos mais assistidos, em ordem decrescente
+     * 
+     * @param conteudos    O mapa de conteúdos em que deseja verificar quais possuem
+     *                     o maior número de visualizações.
+     * @param numConteudos O número de conteúdos com maior número de visualizações
+     *                     que deseja obter. Ex.: Top 10 conteúdos mais assistidos,
+     *                     top 15 etc.
+     * 
+     * @return A lista dos conteúdos mais assistidos em ordem decrescente.
+     */
+    public List<Conteudo> obterConteudosMaisAssistidos(Map<String, Conteudo> conteudos, int numConteudos) {
+        List<Conteudo> conteudosMaisAssistidos = new ArrayList<>(conteudos.values());
+
+        conteudosMaisAssistidos.sort(Comparator.comparingInt(Conteudo::getNumVisualizacoes).reversed());
+
+        return conteudosMaisAssistidos.subList(0, Math.min(numConteudos, conteudosMaisAssistidos.size()));
     }
 }
