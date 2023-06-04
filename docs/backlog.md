@@ -29,7 +29,7 @@ Atualizado em 26/05/2023
 | 9. Algumas mídias serão marcadas como “Lançamento”. Estas mídias só poderão ser assistidas por clientes “profissionais” – aqueles que, de alguma maneira, trabalham diretamente com mídias – sejam como jornalistas, diretores, atores etc. Estes clientes também podem escrever comentários para as mídias assistidas   | Lucas   | 🟢 |
 | 10. Relatorio: Qual cliente assistiu mais mídias, e quantas mídias | Lucas | 🟢 | 
 | 11. Qual cliente tem mais avaliações, e quantas avaliações | Lucas | 🟢 | 
-| 12. Qual a porcentagem dos clientes com pelo menos 15 avaliações | Lucas | 🔴 |
+| 12. Qual a porcentagem dos clientes com pelo menos 15 avaliações | Lucas | 🟢 |
 | 13. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente | Sérgio  | ⚪ | 
 | 14. Quais são as 10 mídias com mais visualizações, em ordem decrescente | Sérgio  | ⚪ |
 | 15. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero | Sérgio  | ⚪ |
