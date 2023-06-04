@@ -12,8 +12,10 @@ public class ClientesComMaisMidiasAssistidas {
     /**
      * Construtor da classe ClientesComMaisMidiasAssistidas
      * 
-     * @param clientes   Os clientes que possuíram a maior quantidade de mídias
-     *                   assistidas
+     * @param clientes   Lista dos clientes com maior número de mídias assistidas.
+     *                   É pedido uma lista por parâmetro por ser possível dois ou
+     *                   mais clientes possuírem o mesmo número de avaliações, sendo
+     *                   possível indicar quem são todos eles.
      * @param quantidade A quantidade de mídias assistidas por esses clientes
      */
     public ClientesComMaisMidiasAssistidas(List<Cliente> clientes, int quantidade) {
