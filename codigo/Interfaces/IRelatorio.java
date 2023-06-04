@@ -10,4 +10,6 @@ public interface IRelatorio {
     ClientesComMaisMidiasAssistidas obterClientesComMaisMidias(Map<String, Cliente> clientes);
 
     ClientesComMaisAvaliacoes obterClientesComMaisAvaliacoes(Map<String, Cliente> clientes);
+
+    double obterPorcentagemClientesComNumeroMinimoAvaliacoes(Map<String, Cliente> clientes, double qtdMinAvaliacoes);
 }
