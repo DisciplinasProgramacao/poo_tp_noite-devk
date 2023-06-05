@@ -113,4 +113,41 @@ public class Relatorio implements IRelatorio {
 
         return conteudosMaisAssistidos.subList(0, Math.min(numConteudos, conteudosMaisAssistidos.size()));
     }
+
+    /**
+     * Método de obtenção dos conteúdos com a melhor média de avaliações e que
+     * satisfaçam a condição de terem sido vistos um número mínimo de vezes, em
+     * ordem decrescente.
+     * 
+     * @param conteudos        O mapa de conteúdos em que deseja verificar quais
+     *                         possuem a melhor média, satisfazendo a condição de
+     *                         número mínimo de vezes visto.
+     * @param numMinVezesVisto O número mínimo de vezes em que o conteúdo deve ter
+     *                         sido assistido para ser contabilizado.
+     * @param numConteudos     O número de conteúdos com a melhor média de
+     *                         avaliações em que deseja obter. Ex.: Top 10 conteúdos
+     *                         com a melhor média de avaliações e que foram
+     *                         assistidos 100 vezes, top 15 etc.
+     * @return A lista dos conteúdos com a melhor média de avaliações e que foram
+     *         assistidos um número mínimo de vezes especificado, em ordem decrescente.
+     */
+    public List<Conteudo> obterConteudosComMelhorMedia(Map<String, Conteudo> conteudos, int numMinVezesVisto,
+            int numConteudos) {
+        List<Conteudo> conteudosComAMelhorMediaComNumeroMinimoVezesVisto = new ArrayList<>();
+        List<Conteudo> conteudosLista = new ArrayList<>(conteudos.values());
+
+        conteudosLista.sort(Comparator.comparingLong(Conteudo::getMediaAvaliacoes).reversed());
+
+        for (Conteudo conteudo : conteudosLista) {
+            if (conteudosComAMelhorMediaComNumeroMinimoVezesVisto.size() == numConteudos) {
+                return conteudosComAMelhorMediaComNumeroMinimoVezesVisto;
+            }
+
+            if (conteudo.numAvaliacoes >= numMinVezesVisto) {
+                conteudosComAMelhorMediaComNumeroMinimoVezesVisto.add(conteudo);
+            }
+        }
+
+        return conteudosComAMelhorMediaComNumeroMinimoVezesVisto;
+    }
 }

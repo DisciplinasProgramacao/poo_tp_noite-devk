@@ -35,7 +35,11 @@ public abstract class Conteudo {
      * @param notaNovaAvaliacao A nota da nova avaliação adicionada
      */
     private void recalcularAvaliacaoMedia(int notaNovaAvaliacao) {
-        this.mediaAvaliacoes = this.mediaAvaliacoes + ((notaNovaAvaliacao - this.mediaAvaliacoes) / numAvaliacoes);
+        this.mediaAvaliacoes = this.mediaAvaliacoes + ((notaNovaAvaliacao - this.mediaAvaliacoes) / this.numAvaliacoes);
+    }
+
+    public long getMediaAvaliacoes() {
+        return this.mediaAvaliacoes;
     }
 
     public int getNumVisualizacoes() {
