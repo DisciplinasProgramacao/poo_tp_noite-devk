@@ -20,7 +20,7 @@ Atualizado em 26/05/2023
 | ----------- | ----------- | ----------- |
 | 1. Atualização do diagrama original para contemplar requisito de carga de dados   |   Lucas | 🟢  |
 | 2. Implementação do cadastro de clientes, filmes e séries |   Francisco |   🟢 |
-| 3. Salvar dados de clientes, filmes e séries  |   | 🔴 | 
+| 3. Salvar dados de clientes, filmes e séries  |   | 🟢 | 
 | 4. Um cliente não pode avaliar a mesma mídia duas vezes   | Lucas | 🟢 |
 | 5. Atualização do diagrama original para contemplar requisito de avaliação   |  Lucas  | 🟢 |
 | 6. Implementação do protótipo de sistema cobrindo os requisitos   |   Grupo    | ⚪ |
