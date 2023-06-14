@@ -32,11 +32,14 @@ Atualizado em 26/05/2023
 | 12. Qual a porcentagem dos clientes com pelo menos 15 avaliações | Lucas | 🟢 |
 | 13. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente | Lucas | 🟢  | 
 | 14. Quais são as 10 mídias com mais visualizações, em ordem decrescente | Lucas | 🟢 |
-| 15. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero | Sérgio  | ⚪ |
-| 16. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Sérgio  | ⚪ |
-| 17. Implementação da Classe APP/Main com a opção de execução de todos os requisitos do sistema    | Sérgio  | ⚪ |
-| 18. Documentação JavaDoc do código | Lucas | 🟢 |
-| 19. Atualização do diagrama para contemplar todos os requisitos implementados | Pedro | 🔵 |
+| 15. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero |   | 🔴 |
+| 16. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Sérgio  | ⚪
+| 17. Implementação da Classe APP/Main com a opção 1-4    |   | 🔴 | |
+| 18. Implementação da Classe APP/Main com a opção 4-8   |   | 🔴 | |
+| 19. Implementação da Classe APP/Main com a opção 8-12    |   | 🔴 | |
+| 20. Implementação da Classe APP/Main com a opção 12-16    | Sérgio  | ⚪ |
+| 21. Documentação JavaDoc do código | Lucas | 🟢 |
+| 22. Atualização do diagrama para contemplar todos os requisitos implementados, 1 para cada implementação, ao todo 4 atualizações do diagrama. (João disse que é obrigatorio ter a evolução, se não perdemos ponto) | Pedro | 🔵 |
 ----
 
 
