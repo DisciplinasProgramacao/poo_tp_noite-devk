@@ -7,8 +7,7 @@ Concluir todos POO_TP_Series_sx
 * Francisco
 * Pedro Henrique Gomes Luckeroth
 * Sergio Junior
-* Lucas
-* R
+* Lucas Gomes
 
 ## Professores responsáveis
 
