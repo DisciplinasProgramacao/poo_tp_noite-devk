@@ -3,7 +3,7 @@ package codigo;
 public abstract class Conteudo {
     protected String id;
     protected String nome;
-    protected String genero;
+    protected Genero genero;
     protected String idioma;
     protected int numVisualizacoes = 0;
     protected long mediaAvaliacoes = 0;
@@ -54,7 +54,7 @@ public abstract class Conteudo {
         return this.id;
     }
 
-    public String getGenero() {
+    public Genero getGenero() {
         return this.genero;
     }
 

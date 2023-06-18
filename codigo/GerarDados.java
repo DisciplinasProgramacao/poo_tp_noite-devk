@@ -1,13 +1,12 @@
 package codigo;
 
+import java.util.Random;
+
 public class GerarDados {
-    private static final String[] generos = { "Ação", "Anime", "Aventura", "Comédia", "Documentário",
-            "Drama", "Policial", "Romance", "Suspense" };
     private static final String[] idiomas = { "Inglês", "Português", "Espanhol" };
 
-    public static String obterGeneroAleatorio() {
-        int indice = (int) Math.random() * idiomas.length;
-        return GerarDados.generos[indice];
+    public static Genero obterGeneroAleatorio() {
+        return Genero.values()[new Random().nextInt(Genero.values().length)];
     }
 
     public static String obterIdiomaAleatorio() {

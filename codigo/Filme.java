@@ -14,11 +14,12 @@ public class Filme extends Conteudo {
      * @param duracao        A duração do filme a ser criado
      * @param ehLancamento   Indicação se o filme é lançamento
      */
-    public Filme(String id, String nome, String genero, String idioma, String dataLancamento, String duracao,
+    public Filme(String id, String nome, Genero genero, String idioma, String dataLancamento, String duracao,
             boolean ehLancamento) {
         this.id = id;
         this.nome = nome;
         this.dataLancamento = dataLancamento;
+        this.genero = genero;
         this.duracao = converterDuracaoDeMinutosParaSegundos(Double.parseDouble(duracao));
         this.ehLancamento = ehLancamento;
     }
