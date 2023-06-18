@@ -34,7 +34,7 @@ Atualizado em 26/05/2023
 | 14. Quais são as 10 mídias com mais visualizações, em ordem decrescente | Lucas | 🟢 |
 | 15. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero |   | 🔴 |
 | 16. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Sérgio  | ⚪
-| 17. Implementação da Classe APP/Main com a opção 1-4    |   | 🔴 | |
+| 17. Implementação da Classe APP/Main com a opção 1-4    | Lucas  |  🟢 | |
 | 18. Implementação da Classe APP/Main com a opção 4-8   |   | 🔴 | |
 | 19. Implementação da Classe APP/Main com a opção 8-12    | Pedro  | ⚪ | |
 | 20. Implementação da Classe APP/Main com a opção 12-16    | Sérgio  | ⚪ |
