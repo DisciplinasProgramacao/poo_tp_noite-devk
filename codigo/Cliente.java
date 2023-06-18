@@ -50,10 +50,12 @@ public abstract class Cliente {
         }
     }
 
-    public void removerListaConteudosParaAssistir(Serie serie) {
-        if (this.conteudosParaAssistir.contains(serie)) {
-            this.conteudosParaAssistir.remove(serie);
+    public boolean removerListaConteudosParaAssistir(Conteudo conteudo) {
+        if (this.conteudosParaAssistir.contains(conteudo)) {
+            this.conteudosParaAssistir.remove(conteudo);
+            return true;
         }
+        return false;
     }
 
     public List<Conteudo> buscarConteudoAssistidoPorGenero(String genero) {

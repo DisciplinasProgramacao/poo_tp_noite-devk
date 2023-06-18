@@ -11,12 +11,25 @@ public class Streaming {
     private Map<String, Conteudo> conteudos = new HashMap<>();
     private Map<String, Cliente> usuarios = new HashMap<>();
     private ILeitorDeArquivo leitorDeArquivo;
-    private Cliente usuarioLogado;
+    private Cliente usuarioLogado = null;
 
     // Injeção de dependência do leitor de arquivo
     public Streaming(ILeitorDeArquivo leitorDeArquivo) {
         this.leitorDeArquivo = leitorDeArquivo;
         this.popularDados();
+    }
+
+    /**
+     * Método para obter o conteúdo ao passar o seu id.
+     * 
+     * @param id O id do conteúdo, especificado no seu arquivo de texto, podendo ser
+     *           tanto uma Serie quanto um Filme.
+     * 
+     * @return O conteúdo com o id desejado ou nulo, caso um conteúdo com esse id
+     *         não exista.
+     */
+    public Conteudo obterConteudoPorId(String id) {
+        return this.conteudos.get(id);
     }
 
     /**
@@ -27,8 +40,10 @@ public class Streaming {
         try {
             this.conteudos = this.leitorDeArquivo.lerArquivosSerie();
             this.usuarios = this.leitorDeArquivo.lerArquivosEspectadores();
-            this.leitorDeArquivo.lerArquivosAudiencia(this.usuarios, this.conteudos);
-            this.leitorDeArquivo.lerArquivosFilme(this.conteudos);
+            // this.leitorDeArquivo.lerArquivosAudiencia(this.usuarios, this.conteudos);
+            System.out.println("aqui safe");
+            this.conteudos = this.leitorDeArquivo.lerArquivosFilme(this.conteudos);
+            System.out.println("aqui tbm");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -40,13 +55,19 @@ public class Streaming {
      * 
      * @param username O nome de usuário do cliente que deseja fazer login
      * @param senha    A senha do cliente que deseja fazer login
+     * 
+     * @return Se o login foi sucedido ou não, considerando as credenciais enviadas.
      */
-    private void fazerLogin(String username, String senha) {
+    public boolean fazerLogin(String username, String senha) {
         Cliente usuario = this.usuarios.get(username);
+        System.out.println(usuario.username);
+        System.out.println(usuario.senha);
         if (!usuario.checarCredenciais(username, senha)) {
-            return;
+            return false;
         }
         this.usuarioLogado = usuario;
+
+        return true;
     }
 
     /**
@@ -76,11 +97,11 @@ public class Streaming {
      * @return Uma lista de todos os conteúdos que correspondem ao nome especificado
      *         na busca.
      */
-    private List<Conteudo> buscarSeriePorNome(String nome) {
+    public List<Conteudo> buscarConteudoPorNome(String nome) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Map.Entry<String, Conteudo> conteudo : this.conteudos.entrySet()) {
-            if (conteudo.getValue().getNome().equals(nome)) {
+            if (conteudo.getValue().getNome().contains(nome)) {
                 conteudosFiltrados.add(conteudo.getValue());
             }
         }
@@ -105,5 +126,14 @@ public class Streaming {
         }
 
         return conteudosFiltrados;
+    }
+
+    /**
+     * Getter para obter o usuário atual logado no sistema.
+     * 
+     * @return O usuário atual logado no sistema.
+     */
+    public Cliente getUsuarioLogado() {
+        return this.usuarioLogado;
     }
 }
