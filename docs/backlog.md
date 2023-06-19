@@ -32,7 +32,7 @@ Atualizado em 26/05/2023
 | 12. Qual a porcentagem dos clientes com pelo menos 15 avaliações | Lucas | 🟢 |
 | 13. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente | Lucas | 🟢  | 
 | 14. Quais são as 10 mídias com mais visualizações, em ordem decrescente | Lucas | 🟢 |
-| 15. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero | Francisco  | ⚪ |
+| 15. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero | Francisco  |  🟢|
 | 16. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Sérgio  | ⚪ | |
 | 17. Implementação da Classe APP com a opção 1-4    | Lucas  | 🟢 | |
 | 18. Implementação da Classe APP com a opção 5-9    | Pedro  | 🟢 | |
