@@ -98,6 +98,61 @@ public class App {
                         System.out.println();
                     }
                     break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    if (usuarioLogado == null) {
+                        System.out.println("Faça login antes de utilizar essa opção!");
+                    } else {
+                        System.out.println("Digite o gênero da mídia que deseja buscar: ");
+                        List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorGenero(Genero.valueOf(sc.nextLine().toString()));
+
+                        System.out.println("\nConteúdos encontrados com esse gênero foram: ");
+                        for (Conteudo conteudo : conteudoBuscado) {
+                            System.out.println(conteudo.nome + ", de gênero: "
+                                    + conteudo.genero.toString().toLowerCase() + ", no idioma "
+                                    + conteudo.idioma.toString().toLowerCase() + ", lançado em: "
+                                    + conteudo.dataLancamento);
+                        }
+                        System.out.println();
+                    }
+                    break;
+                case 9:
+                    if (usuarioLogado == null) {
+                        System.out.println("Faça login antes de utilizar essa opção!");
+                    } else {
+                        System.out.println("Digite o idioma da mídia que deseja buscar: ");
+                        List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorIdioma(Idioma.valueOf(sc.nextLine().toString()));
+
+                        System.out.println("\nConteúdos encontrados com esse idioma foram: ");
+                        for (Conteudo conteudo : conteudoBuscado) {
+                            System.out.println(conteudo.nome + ", de gênero: "
+                                    + conteudo.genero.toString().toLowerCase() + ", no idioma "
+                                    + conteudo.idioma.toString().toLowerCase() + ", lançado em: "
+                                    + conteudo.dataLancamento);
+                        }
+                        System.out.println();
+                    }
+                    break;
+                case 10:
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                case 13:
+                    break;
+                case 14:
+                    break;
+                case 15:
+                    break;
+                case 16:
+                    break;
+
             }
 
             imprimirOperacoes(streaming.getUsuarioLogado() != null ? streaming.getUsuarioLogado().username : null);
