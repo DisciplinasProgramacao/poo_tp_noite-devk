@@ -77,7 +77,7 @@ public class Streaming {
      * @return Uma lista de todos os conteúdos que correspondem ao gênero
      *         especificado na busca.
      */
-    private List<Conteudo> buscarConteudoPorGenero(Genero genero) {
+    public List<Conteudo> buscarConteudoPorGenero(Genero genero) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudos.values()) {
@@ -115,7 +115,7 @@ public class Streaming {
      * @return Uma lista de todos os conteúdos que correspodnem ao idioma
      *         especificado na busca.
      */
-    private List<Conteudo> buscarConteudoPorIdioma(Idioma idioma) {
+    public List<Conteudo> buscarConteudoPorIdioma(Idioma idioma) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudos.values()) {
