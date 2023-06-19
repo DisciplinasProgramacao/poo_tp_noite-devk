@@ -104,17 +104,71 @@ public class App {
                     }
                     break;
                 case 5:
+                    if (usuarioLogado == null) {
+                        System.out.println("Faça login antes de utilizar essa opção!");
+                    } else {
+                        System.out.println("Digite o tipo de gênero que deseja buscar: ");
+                        String genreMidia = sc.next();
+                        List<Conteudo> conteudoBuscado = usuarioLogado.buscarConteudoAssistidoPorGenero(Genero.valueOf(genreMidia.toLowerCase()));
+                        if (conteudoBuscado.size() == 0) {
+                            System.out.println("Não foi encontrado nenhum conteúdo assistido deste gênero");
+                        } else {
+                            System.out.println("\nConteúdos assistidos desse gênero foram: ");
+                            for (Conteudo conteudo : conteudoBuscado) {
+                                System.out.println(conteudo.nome + ", de gênero: "
+                                        + conteudo.genero.toString().toLowerCase() + ", no idioma "
+                                        + conteudo.idioma.toString().toLowerCase() + ", lançado em: "
+                                        + conteudo.dataLancamento);
+                            }
+                        }
+                        System.out.println();
+                    }
                     break;
                 case 6:
+                    if (usuarioLogado == null) {
+                        System.out.println("Faça login antes de utilizar essa opção!");
+                    } else {
+                        System.out.println("Digite o idioma que deseja buscar: ");
+                        String languageMidia = sc.next();
+                        List<Conteudo> conteudoBuscado = usuarioLogado.buscarConteudoAssistidoPorIdioma(Idioma.valueOf(languageMidia.toLowerCase()));
+                        if (conteudoBuscado.size() == 0) {
+                            System.out.println("Não foi encontrado nenhum conteúdo assistido neste idioma");
+                        } else {
+                            System.out.println("\nConteúdos assistidos nesse idioma foram: ");
+                            for (Conteudo conteudo : conteudoBuscado) {
+                                System.out.println(conteudo.nome + ", de gênero: "
+                                        + conteudo.genero.toString().toLowerCase() + ", no idioma "
+                                        + conteudo.idioma.toString().toLowerCase() + ", lançado em: "
+                                        + conteudo.dataLancamento);
+                            }
+                        }
+                        System.out.println();
+                    }
                     break;
                 case 7:
+                    if (usuarioLogado == null) {
+                        System.out.println("Faça login antes de utilizar essa opção!");
+                    } else {
+                        System.out.println("Digite o nome da mídia que deseja buscar: ");
+                        String nomeMidia = sc.next();
+                        List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorNome(nomeMidia.toLowerCase());
+                        System.out.println("\nConteúdos encontrados com esse nome foram: ");
+                        for (Conteudo conteudo : conteudoBuscado) {
+                            System.out.println(conteudo.nome + ", de gênero: "
+                                    + conteudo.genero.toString().toLowerCase() + ", no idioma "
+                                    + conteudo.idioma.toString().toLowerCase() + ", lançado em: "
+                                    + conteudo.dataLancamento);
+                        }
+                        System.out.println();
+                    }
                     break;
                 case 8:
                     if (usuarioLogado == null) {
                         System.out.println("Faça login antes de utilizar essa opção!");
                     } else {
                         System.out.println("Digite o gênero da mídia que deseja buscar: ");
-                        List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorGenero(Genero.valueOf(sc.nextLine().toString()));
+                        String generoMidia = sc.next();
+                        List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorGenero(Genero.valueOf(generoMidia.toLowerCase()));
                         System.out.println("\nConteúdos encontrados com esse gênero foram: ");
                         for (Conteudo conteudo : conteudoBuscado) {
                             System.out.println(conteudo.nome + ", de gênero: "
@@ -130,7 +184,8 @@ public class App {
                         System.out.println("Faça login antes de utilizar essa opção!");
                     } else {
                         System.out.println("Digite o idioma da mídia que deseja buscar: ");
-                        List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorIdioma(Idioma.valueOf(sc.nextLine().toString()));
+                        String idiomaMidia = sc.next();
+                        List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorIdioma(Idioma.valueOf(idiomaMidia.toLowerCase()));
                         System.out.println("\nConteúdos encontrados com esse idioma foram: ");
                         for (Conteudo conteudo : conteudoBuscado) {
                             System.out.println(conteudo.nome + ", de gênero: "
