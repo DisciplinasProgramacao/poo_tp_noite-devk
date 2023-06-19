@@ -1,6 +1,7 @@
 package codigo;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +59,7 @@ public abstract class Cliente {
         return false;
     }
 
-    public List<Conteudo> buscarConteudoAssistidoPorGenero(String genero) {
+    public List<Conteudo> buscarConteudoAssistidoPorGenero(Genero genero) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudosAssistidos) {
@@ -82,7 +83,7 @@ public abstract class Cliente {
         return conteudosFiltrados;
     }
 
-    public List<Conteudo> buscarConteudoAssistidoPorIdioma(String idioma) {
+    public List<Conteudo> buscarConteudoAssistidoPorIdioma(Idioma idioma) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudosAssistidos) {
@@ -94,7 +95,7 @@ public abstract class Cliente {
         return conteudosFiltrados;
     }
 
-    public List<Conteudo> buscarConteudoParaAssistirPorGenero(String genero) {
+    public List<Conteudo> buscarConteudoParaAssistirPorGenero(Genero genero) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudosParaAssistir) {
@@ -118,7 +119,7 @@ public abstract class Cliente {
         return conteudosFiltrados;
     }
 
-    public List<Conteudo> buscarConteudoParaAssistirPorIdioma(String idioma) {
+    public List<Conteudo> buscarConteudoParaAssistirPorIdioma(Idioma idioma) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudosParaAssistir) {
