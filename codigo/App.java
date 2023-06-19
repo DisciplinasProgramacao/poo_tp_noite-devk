@@ -110,7 +110,6 @@ public class App {
                     } else {
                         System.out.println("Digite o gênero da mídia que deseja buscar: ");
                         List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorGenero(Genero.valueOf(sc.nextLine().toString()));
-
                         System.out.println("\nConteúdos encontrados com esse gênero foram: ");
                         for (Conteudo conteudo : conteudoBuscado) {
                             System.out.println(conteudo.nome + ", de gênero: "
@@ -127,7 +126,6 @@ public class App {
                     } else {
                         System.out.println("Digite o idioma da mídia que deseja buscar: ");
                         List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorIdioma(Idioma.valueOf(sc.nextLine().toString()));
-
                         System.out.println("\nConteúdos encontrados com esse idioma foram: ");
                         for (Conteudo conteudo : conteudoBuscado) {
                             System.out.println(conteudo.nome + ", de gênero: "
