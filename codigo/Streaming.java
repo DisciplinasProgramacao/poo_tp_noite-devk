@@ -40,10 +40,8 @@ public class Streaming {
         try {
             this.conteudos = this.leitorDeArquivo.lerArquivosSerie();
             this.usuarios = this.leitorDeArquivo.lerArquivosEspectadores();
-            // this.leitorDeArquivo.lerArquivosAudiencia(this.usuarios, this.conteudos);
-            System.out.println("aqui safe");
+            this.leitorDeArquivo.lerArquivosAudiencia(this.usuarios, this.conteudos);
             this.conteudos = this.leitorDeArquivo.lerArquivosFilme(this.conteudos);
-            System.out.println("aqui tbm");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
