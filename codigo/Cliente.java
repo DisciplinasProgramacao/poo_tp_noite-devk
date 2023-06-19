@@ -58,7 +58,7 @@ public abstract class Cliente {
         return false;
     }
 
-    public List<Conteudo> buscarConteudoAssistidoPorGenero(String genero) {
+    public List<Conteudo> buscarConteudoAssistidoPorGenero(Genero genero) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudosAssistidos) {
@@ -110,7 +110,7 @@ public abstract class Cliente {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudosParaAssistir) {
-            if (conteudo.getGenero().equals(nome)) {
+            if (conteudo.nome.toLowerCase().contains(nome.toLowerCase())) {
                 conteudosFiltrados.add(conteudo);
             }
         }
