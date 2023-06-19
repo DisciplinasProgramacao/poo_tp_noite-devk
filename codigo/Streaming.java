@@ -75,15 +75,14 @@ public class Streaming {
      * 
      * @param genero O gênero do conteúdo que deseja buscar
      * @return Uma lista de todos os conteúdos que correspondem ao gênero
-     *         especificado na
-     *         busca
+     *         especificado na busca.
      */
-    private List<Conteudo> buscarConteudoPorGenero(String genero) {
+    private List<Conteudo> buscarConteudoPorGenero(Genero genero) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
-        for (Map.Entry<String, Conteudo> conteudo : this.conteudos.entrySet()) {
-            if (conteudo.getValue().getGenero().equals(genero)) {
-                conteudosFiltrados.add(conteudo.getValue());
+        for (Conteudo conteudo : this.conteudos.values()) {
+            if (conteudo.getGenero().equals(genero)) {
+                conteudosFiltrados.add(conteudo);
             }
         }
 
@@ -100,9 +99,9 @@ public class Streaming {
     public List<Conteudo> buscarConteudoPorNome(String nome) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
-        for (Map.Entry<String, Conteudo> conteudo : this.conteudos.entrySet()) {
-            if (conteudo.getValue().getNome().contains(nome)) {
-                conteudosFiltrados.add(conteudo.getValue());
+        for (Conteudo conteudo : this.conteudos.values()) {
+            if (conteudo.getNome().contains(nome)) {
+                conteudosFiltrados.add(conteudo);
             }
         }
 
@@ -116,12 +115,12 @@ public class Streaming {
      * @return Uma lista de todos os conteúdos que correspodnem ao idioma
      *         especificado na busca.
      */
-    private List<Conteudo> buscarConteudoPorIdioma(String idioma) {
+    private List<Conteudo> buscarConteudoPorIdioma(Idioma idioma) {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
-        for (Map.Entry<String, Conteudo> conteudo : this.conteudos.entrySet()) {
-            if (conteudo.getValue().getIdioma().equals(idioma)) {
-                conteudosFiltrados.add(conteudo.getValue());
+        for (Conteudo conteudo : this.conteudos.values()) {
+            if (conteudo.getIdioma().equals(idioma)) {
+                conteudosFiltrados.add(conteudo);
             }
         }
 

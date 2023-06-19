@@ -25,13 +25,13 @@ public class Relatorio implements IRelatorio {
         int maiorNumeroMidiasAssistidas = -1;
         List<Cliente> clientesQueMaisAssistiram = new ArrayList<>();
 
-        for (var cliente : clientes.entrySet()) {
-            int numMidiasAssistidas = cliente.getValue().obterQuantidadeMidiasAssistidas();
+        for (Cliente cliente : clientes.values()) {
+            int numMidiasAssistidas = cliente.obterQuantidadeMidiasAssistidas();
             if (numMidiasAssistidas > maiorNumeroMidiasAssistidas) {
                 maiorNumeroMidiasAssistidas = numMidiasAssistidas;
-                clientesQueMaisAssistiram = new ArrayList<>(Arrays.asList(cliente.getValue()));
+                clientesQueMaisAssistiram = new ArrayList<>(Arrays.asList(cliente));
             } else if (numMidiasAssistidas == maiorNumeroMidiasAssistidas) {
-                clientesQueMaisAssistiram.add(cliente.getValue());
+                clientesQueMaisAssistiram.add(cliente);
             }
         }
 
@@ -52,13 +52,13 @@ public class Relatorio implements IRelatorio {
         int maiorNumeroAvaliacoes = -1;
         List<Cliente> clientesComMaisAvaliacoes = new ArrayList<>();
 
-        for (var cliente : clientes.entrySet()) {
-            int numAvaliacoes = cliente.getValue().obterQuantidadeAvaliacoes();
+        for (Cliente cliente : clientes.values()) {
+            int numAvaliacoes = cliente.obterQuantidadeAvaliacoes();
             if (numAvaliacoes > maiorNumeroAvaliacoes) {
                 maiorNumeroAvaliacoes = numAvaliacoes;
-                clientesComMaisAvaliacoes = new ArrayList<>(Arrays.asList(cliente.getValue()));
+                clientesComMaisAvaliacoes = new ArrayList<>(Arrays.asList(cliente));
             } else if (numAvaliacoes == maiorNumeroAvaliacoes) {
-                clientesComMaisAvaliacoes.add(cliente.getValue());
+                clientesComMaisAvaliacoes.add(cliente);
             }
         }
 
@@ -83,8 +83,8 @@ public class Relatorio implements IRelatorio {
             double qtdMinAvaliacoes) {
         int qtdClientesComNumeroMinAvaliacoes = 0;
 
-        for (var cliente : clientes.entrySet()) {
-            if (cliente.getValue().obterQuantidadeAvaliacoes() >= qtdMinAvaliacoes) {
+        for (Cliente cliente : clientes.values()) {
+            if (cliente.obterQuantidadeAvaliacoes() >= qtdMinAvaliacoes) {
                 qtdClientesComNumeroMinAvaliacoes++;
             }
         }
@@ -129,7 +129,8 @@ public class Relatorio implements IRelatorio {
      *                         com a melhor média de avaliações e que foram
      *                         assistidos 100 vezes, top 15 etc.
      * @return A lista dos conteúdos com a melhor média de avaliações e que foram
-     *         assistidos um número mínimo de vezes especificado, em ordem decrescente.
+     *         assistidos um número mínimo de vezes especificado, em ordem
+     *         decrescente.
      */
     public List<Conteudo> obterConteudosComMelhorMedia(Map<String, Conteudo> conteudos, int numMinVezesVisto,
             int numConteudos) {
