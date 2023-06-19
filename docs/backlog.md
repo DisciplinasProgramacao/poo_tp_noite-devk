@@ -35,8 +35,8 @@ Atualizado em 26/05/2023
 | 15. Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero | Francisco  | ⚪ |
 | 16. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Sérgio  | ⚪ | |
 | 17. Implementação da Classe APP/Main com a opção 1-4    | Lucas  | 🟢 | |
-| 18. Implementação da Classe APP/Main com a opção 5-10    | Pedro  | ⚪ | |
-| 19. Implementação da Classe APP/Main com a opção 11-16    | Sérgio  | ⚪ |
+| 18. Implementação da Classe APP/Main com a opção 5-9    | Pedro  | ⚪ | |
+| 19. Implementação da Classe APP/Main com a opção 10-16    | Sérgio  | ⚪ |
 | 20. Documentação JavaDoc do código | Lucas | 🟢 |
 | 21. Atualização do diagrama para contemplar todos os requisitos implementados, 1 para cada implementação, ao todo 4 atualizações do diagrama. (João disse que é obrigatorio ter a evolução, se não perdemos ponto) | Pedro | 🟢 |
 | 22. Limitação do idioma dos conteúdos utilizando um enumerador | Lucas | 🟢 |
