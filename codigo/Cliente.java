@@ -75,7 +75,7 @@ public abstract class Cliente {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudosAssistidos) {
-            if (conteudo.nome.toLowerCase().contains(nome)) {
+            if (conteudo.nome.toLowerCase().contains(nome.toLowerCase())) {
                 conteudosFiltrados.add(conteudo);
             }
         }
@@ -111,7 +111,7 @@ public abstract class Cliente {
         List<Conteudo> conteudosFiltrados = new ArrayList<>();
 
         for (Conteudo conteudo : this.conteudosParaAssistir) {
-            if (conteudo.getGenero().equals(nome)) {
+            if (conteudo.nome.toLowerCase().contains(nome.toLowerCase())) {
                 conteudosFiltrados.add(conteudo);
             }
         }
