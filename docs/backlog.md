@@ -40,7 +40,7 @@ Atualizado em 26/05/2023
 | 20. Implementação da Classe APP/Main com a opção 12-16    | Sérgio  | ⚪ |
 | 21. Documentação JavaDoc do código | Lucas | 🟢 |
 | 22. Atualização do diagrama para contemplar todos os requisitos implementados, 1 para cada implementação, ao todo 4 atualizações do diagrama. (João disse que é obrigatorio ter a evolução, se não perdemos ponto) | Pedro | 🟢 |
-| 23. Limitação do idioma dos conteúdos utilizando um enumerador | Lucas | 🔴 |
+| 23. Limitação do idioma dos conteúdos utilizando um enumerador | Lucas | 🟢 |
 ----
 
 

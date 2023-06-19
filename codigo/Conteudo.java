@@ -4,7 +4,7 @@ public abstract class Conteudo {
     protected String id;
     protected String nome;
     protected Genero genero;
-    protected String idioma;
+    protected Idioma idioma;
     protected int numVisualizacoes = 0;
     protected long mediaAvaliacoes = 0;
     protected int numAvaliacoes = 0;
@@ -58,7 +58,7 @@ public abstract class Conteudo {
         return this.genero;
     }
 
-    public String getIdioma() {
+    public Idioma getIdioma() {
         return this.idioma;
     }
 

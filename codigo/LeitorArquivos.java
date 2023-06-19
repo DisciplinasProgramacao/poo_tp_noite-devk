@@ -103,7 +103,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 String dataLancamento = fields[2];
 
                 Genero genero = GerarDados.obterGeneroAleatorio();
-                String idioma = GerarDados.obterIdiomaAleatorio();
+                Idioma idioma = GerarDados.obterIdiomaAleatorio();
 
                 series.put(idSerie, new Serie(idSerie, nome, genero, idioma, dataLancamento));
                 line = br.readLine();
@@ -139,7 +139,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
                 String duracaoEmMin = fields[3];
 
                 Genero genero = GerarDados.obterGeneroAleatorio();
-                String idioma = GerarDados.obterIdiomaAleatorio();
+                Idioma idioma = GerarDados.obterIdiomaAleatorio();
 
                 todosConteudos.put(idFilme,
                         new Filme(idFilme, nome, genero, idioma, dataLancamento, duracaoEmMin, false));

@@ -12,10 +12,11 @@ public class Serie extends Conteudo {
      * @param idioma         O idioma da série a ser criada
      * @param dataLancamento A data de lançamento da série a ser criada
      */
-    public Serie(String id, String nome, Genero genero, String idioma, String dataLancamento) {
+    public Serie(String id, String nome, Genero genero, Idioma idioma, String dataLancamento) {
         this.id = id;
         this.nome = nome;
         this.dataLancamento = dataLancamento;
+        this.idioma = idioma;
         this.genero = genero;
     }
 
@@ -29,7 +30,7 @@ public class Serie extends Conteudo {
      * @param qtdEpisodios A quantidade de episódios da série a ser criada
      * @param ehLancamento Indicador se a série é lançamento ou não
      */
-    public Serie(String id, String nome, Genero genero, String idioma, int qtdEpisodios, boolean ehLancamento) {
+    public Serie(String id, String nome, Genero genero, Idioma idioma, int qtdEpisodios, boolean ehLancamento) {
         this.id = id;
         this.nome = nome;
         this.genero = genero;

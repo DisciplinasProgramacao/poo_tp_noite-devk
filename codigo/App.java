@@ -88,9 +88,11 @@ public class App {
 
                         List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorNome(nomeMidia);
 
-                        System.out.println("Conteúdos encontrados com esse nome foram: ");
+                        System.out.println("\nConteúdos encontrados com esse nome foram: ");
                         for (Conteudo conteudo : conteudoBuscado) {
-                            System.out.println(conteudo.nome + ", de gênero: " + conteudo.genero + ", lançado em: "
+                            System.out.println(conteudo.nome + ", de gênero: "
+                                    + conteudo.genero.toString().toLowerCase() + ", no idioma "
+                                    + conteudo.idioma.toString().toLowerCase() + ", lançado em: "
                                     + conteudo.dataLancamento);
                         }
                         System.out.println();
