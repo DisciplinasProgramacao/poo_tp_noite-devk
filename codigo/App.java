@@ -86,14 +86,19 @@ public class App {
                         System.out.println("Digite o nome da mídia que deseja buscar: ");
                         String nomeMidia = sc.next();
 
-                        List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorNome(nomeMidia);
+                        List<Conteudo> conteudoBuscado = usuarioLogado
+                                .buscarConteudoAssistidoPorNome(nomeMidia.toLowerCase());
 
-                        System.out.println("\nConteúdos encontrados com esse nome foram: ");
-                        for (Conteudo conteudo : conteudoBuscado) {
-                            System.out.println(conteudo.nome + ", de gênero: "
-                                    + conteudo.genero.toString().toLowerCase() + ", no idioma "
-                                    + conteudo.idioma.toString().toLowerCase() + ", lançado em: "
-                                    + conteudo.dataLancamento);
+                        if (conteudoBuscado.size() == 0) {
+                            System.out.println("Não foi encontrado nenhum conteúdo assistido com esse nome");
+                        } else {
+                            System.out.println("\nConteúdos assistidos com esse nome foram: ");
+                            for (Conteudo conteudo : conteudoBuscado) {
+                                System.out.println(conteudo.nome + ", de gênero: "
+                                        + conteudo.genero.toString().toLowerCase() + ", no idioma "
+                                        + conteudo.idioma.toString().toLowerCase() + ", lançado em: "
+                                        + conteudo.dataLancamento);
+                            }
                         }
                         System.out.println();
                     }
