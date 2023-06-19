@@ -39,7 +39,7 @@ public abstract class Conteudo {
     }
 
     public long getMediaAvaliacoes() {
-        return this.mediaAvaliacoes;
+        return this.mediaAvaliacoes;                                                                            
     }
 
     public int getNumVisualizacoes() {

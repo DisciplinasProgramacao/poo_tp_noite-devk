@@ -3,6 +3,7 @@ package codigo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -136,9 +137,9 @@ public class Relatorio implements IRelatorio {
             int numConteudos) {
         List<Conteudo> conteudosComAMelhorMediaComNumeroMinimoVezesVisto = new ArrayList<>();
         List<Conteudo> conteudosLista = new ArrayList<>(conteudos.values());
-
+        
         conteudosLista.sort(Comparator.comparingLong(Conteudo::getMediaAvaliacoes).reversed());
-
+        
         for (Conteudo conteudo : conteudosLista) {
             if (conteudosComAMelhorMediaComNumeroMinimoVezesVisto.size() == numConteudos) {
                 return conteudosComAMelhorMediaComNumeroMinimoVezesVisto;
@@ -151,4 +152,29 @@ public class Relatorio implements IRelatorio {
 
         return conteudosComAMelhorMediaComNumeroMinimoVezesVisto;
     }
-}
+    // 15 Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero'
+      public List<Conteudo>obterConteudosComMelhorMediaVistopeloMenosCem(Map<String, Conteudo> conteudos, int numVisualizacoes ,
+            int numConteudos){
+              List<Conteudo> conteudosComAMelhorMediaComNumeroMinimoVezesVistoPorGenero= new ArrayList<>();
+                List<Conteudo> conteudosLista = new ArrayList<>(conteudos.values());
+           conteudosLista.sort(Comparator.comparingLong(Conteudo::getMediaAvaliacoes).reversed());
+            if(numVisualizacoes >100){
+           for(int i=0 ;i <= 10 ; i++ ){
+                for (Conteudo conteudo : conteudosLista) {
+          conteudosComAMelhorMediaComNumeroMinimoVezesVistoPorGenero.add(conteudo);
+          conteudosComAMelhorMediaComNumeroMinimoVezesVistoPorGenero.sort(Comparator.comparing(Conteudo::getGenero));
+        
+        }
+        }}
+        return  conteudosComAMelhorMediaComNumeroMinimoVezesVistoPorGenero;
+    }
+            
+            
+  
+  
+            }
+
+
+      
+                
+
