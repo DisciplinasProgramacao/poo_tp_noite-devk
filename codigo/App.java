@@ -5,22 +5,18 @@ import java.util.*;
 import codigo.Interfaces.ILeitorDeArquivo;
 
 public class App {
-    public static void main(String[] args) {
+   static Scanner sc = new Scanner(System.in);
+ public static void main(String[] args) {
+
+        
         ILeitorDeArquivo leitorDeArquivo = new LeitorArquivos();
         Streaming streaming = new Streaming(leitorDeArquivo);
-
-        Scanner sc = new Scanner(System.in);
-
-        imprimirOperacoes(null);
-
-        int operacao = sc.nextInt();
-
         Cliente usuarioLogado = null;
-
-        while (operacao != 0) {
-
-            switch (operacao) {
-                case 1:
+        
+        
+       switch(MenuPrincipal()){
+        case 1:
+                    limparTela();
                     boolean credenciaisInvalidas = true;
                     do {
                         System.out.println("Digite o nome de usuário: ");
@@ -37,7 +33,11 @@ public class App {
                         }
                     } while (credenciaisInvalidas);
                     break;
-                case 2:
+        case 2:
+        limparTela();
+        switch(MenuCliente()){
+            case 1:
+            limparTela();
                     if (streaming.getUsuarioLogado() == null) {
                         System.out.println("Faça login antes de utilizar essa opção!\n");
                     } else {
@@ -55,8 +55,9 @@ public class App {
                         System.out.println("Conteúdo adicionado aos favoritos!");
                     }
 
-                    break;
-                case 3:
+            break;
+            case 2:
+            limparTela();
                     if (usuarioLogado == null) {
                         System.out.println("Faça login antes de utilizar essa opção!");
                     } else {
@@ -78,8 +79,9 @@ public class App {
                             System.out.println("Usuário não possui conteúdo com o id especificado nos favoritos.");
                         }
                     }
-                    break;
-                case 4:
+            break;
+            case 3:
+                    limparTela();
                     if (usuarioLogado == null) {
                         System.out.println("Faça login antes de utilizar essa opção!");
                     } else {
@@ -102,8 +104,9 @@ public class App {
                         }
                         System.out.println();
                     }
-                    break;
-                case 5:
+            break;
+            case 4:
+                    limparTela();
                     if (usuarioLogado == null) {
                         System.out.println("Faça login antes de utilizar essa opção!");
                     } else {
@@ -121,10 +124,11 @@ public class App {
                                         + conteudo.dataLancamento);
                             }
                         }
-                        System.out.println();
+                        System.out.println("\n");
                     }
-                    break;
-                case 6:
+            break;
+            case 5:
+                    limparTela();
                     if (usuarioLogado == null) {
                         System.out.println("Faça login antes de utilizar essa opção!");
                     } else {
@@ -144,8 +148,9 @@ public class App {
                         }
                         System.out.println();
                     }
-                    break;
-                case 7:
+            break;
+            case 6:
+                    limparTela();
                     if (usuarioLogado == null) {
                         System.out.println("Faça login antes de utilizar essa opção!");
                     } else {
@@ -161,8 +166,9 @@ public class App {
                         }
                         System.out.println();
                     }
-                    break;
-                case 8:
+            break;
+            case 7:
+                    limparTela();
                     if (usuarioLogado == null) {
                         System.out.println("Faça login antes de utilizar essa opção!");
                     } else {
@@ -178,8 +184,9 @@ public class App {
                         }
                         System.out.println();
                     }
-                    break;
-                case 9:
+            break;
+            case 8:
+                    limparTela();
                     if (usuarioLogado == null) {
                         System.out.println("Faça login antes de utilizar essa opção!");
                     } else {
@@ -195,39 +202,79 @@ public class App {
                         }
                         System.out.println();
                     }
-                    break;
-                case 10:
-                    break;
-                case 11:
-                    break;
-                case 12:
-                    break;
-                case 13:
-                    break;
-                case 14:
-                    break;
-                case 15:
-                    break;
-                case 16:
-                    break;
+            break;
+            case 9:
+            limparTela();
+            if (usuarioLogado == null) {
+                        System.out.println("Faça login antes de utilizar essa opção!");
+                    } else {
+                        System.out.println("Digite o ID da mídia que deseja avaliar: ");
+                        String idMidia = sc.next();
+                        System.out.println("Digite a mensagem:");
+                        String mensagem = sc.next();
+                        System.out.println("Digite uma nota de 1-5 para avaliar: ");
+                        int notaAvaliacao = sc.nextInt();
 
+                        Conteudo midia = streaming.obterConteudoPorId(idMidia);
+
+                        usuarioLogado.avaliarMidia(midia, notaAvaliacao, mensagem);
+
+                    }
+            break;
             }
-
-            imprimirOperacoes(streaming.getUsuarioLogado() != null ? streaming.getUsuarioLogado().username : null);
-            operacao = sc.nextInt();
-        }
-
-        sc.close();
+        case 3:
+        limparTela();
+        MenuRelatorio();
+        break;
+       } 
     }
 
+    
     private static void adicionarConteudoAosFavoritosDoUsuario(Conteudo conteudo, Cliente usuarioLogado) {
         usuarioLogado.conteudosParaAssistir.add(conteudo);
+    }
+
+    public static void limparTela() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     private static boolean removerConteudoAosFavoritosDoUsuario(Conteudo conteudo, Cliente usuarioLogado) {
         return usuarioLogado.removerListaConteudosParaAssistir(conteudo);
     }
 
+    private static int MenuPrincipal() {  
+        System.out.println("Digite:" + "\n" + "1 - Fazer Login" + "\n" + "2 - Menu Cliente" + "\n"
+                + "3 - Menu Relatórios" + "\n");
+         int operacao = sc.nextInt();
+        return operacao;
+}
+
+    private static int MenuCliente() {
+        System.out.println("1 - Adicionar a lista de favoritos!" + "\n"
+                + "2 - Remover da lista de favoritos!" + "\n" + "3 - Buscar Mídia assistida por Nome!" + "\n"
+                + "4 - Buscar Mídia assistida por Gênero!" + "\n" + "5 - Buscar Mídia assistida por Idioma!" + "\n"
+                + "6 - Buscar Mídia para assistir por Nome!" + "\n" + "7 - Buscar Mídia para assistir por Gênero!"
+                + "\n" + "8 - Buscar Mídia para assistir por Idioma!" + "\n" + "9 - Avaliar mídia!" + "\n" + "0 - Voltar");
+                int operacao = sc.nextInt();
+        return operacao;
+    }
+
+    private static int MenuRelatorio() {
+        System.out.println("Digite:" + "\n" + "1 - Relatorio: Qual cliente assistiu mais mídias, e quantas mídias!" + "\n"
+                + "2 - Relatorio: Qual cliente tem mais avaliações, e quantas avaliações!" + "\n"
+                + "3 - Relatorio: Qual a porcentagem dos clientes com pelo menos 15 avaliações!" + "\n"
+                + "4 - Relatorio: Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente!"
+                + "\n"
+                + "5 - Relatorio: Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero!"
+                + "\n"
+                + "6 - Relatorio: Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero!"
+                + "\n" + "0 - Voltar");
+                int operacao = sc.nextInt();
+        return operacao;
+    }
+
+    /*Temporário: pode excluir */
     private static void imprimirOperacoes(String usernameUsuarioLogado) {
         if (usernameUsuarioLogado != null) {
             System.out.println("\nUsuário logado: " + usernameUsuarioLogado + "\n");
