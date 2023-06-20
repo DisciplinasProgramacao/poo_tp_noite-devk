@@ -41,7 +41,6 @@ public class App {
                     if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
-
                         System.out.println("Digite o id do conteúdo que deseja adicionar aos favoritos: ");
                         String idConteudo = sc.next();
 
@@ -221,6 +220,22 @@ public class App {
 
                     }
             break;
+            case 10:
+                limparTela();
+                if (usuarioLogado == null) {
+                    ifNotLoginMsg();
+                } else {
+                    List<Conteudo> conteudosAssistidos = usuarioLogado.conteudosAssistidos;
+                    if (conteudosAssistidos.size() < 0) {
+                        System.out.println("Você não possui nenhum conteúdo assistido!");
+                    } else {
+                        System.out.println("Seus conteúdos assistidos são: ");
+                        for (Conteudo conteudo : conteudosAssistidos) {
+                            System.out.println(conteudo.nome + ", lançado em: " + conteudo.dataLancamento);
+                        }
+                    }
+                }
+                break;
         }
             case 2:
             limparTela();
@@ -254,10 +269,8 @@ public class App {
             break;
             };
             
-        
         break;
        }
-} 
 
     
     private static void adicionarConteudoAosFavoritosDoUsuario(Conteudo conteudo, Cliente usuarioLogado) {
@@ -290,7 +303,8 @@ public class App {
                 + "2 - Remover da lista de favoritos!" + "\n" + "3 - Buscar Mídia assistida por Nome!" + "\n"
                 + "4 - Buscar Mídia assistida por Gênero!" + "\n" + "5 - Buscar Mídia assistida por Idioma!" + "\n"
                 + "6 - Buscar Mídia para assistir por Nome!" + "\n" + "7 - Buscar Mídia para assistir por Gênero!"
-                + "\n" + "8 - Buscar Mídia para assistir por Idioma!" + "\n" + "9 - Avaliar mídia!" + "\n" + "0 - Voltar");
+                + "\n" + "8 - Buscar Mídia para assistir por Idioma!" + "\n" + "9 - Avaliar mídia!" + "\n" 
+                + "10 - Visualizar conteúdos assistidos\n" + "0 - Voltar");
                 int operacao = sc.nextInt();
         return operacao;
     }

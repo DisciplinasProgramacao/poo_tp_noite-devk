@@ -27,7 +27,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
             String line = br.readLine();
             while (line != null) {
                 String[] fields = line.split(";");
-                String login = fields[0];
+                String login = this.normalizarTexto(fields[0]);
                 String statusAssistido = fields[1];
                 String idConteudo = fields[2];
 
@@ -67,7 +67,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
             String line = br.readLine();
             while (line != null) {
                 String[] fields = line.split(";");
-                String nome = fields[0];
+                String nome = this.normalizarTexto(fields[0]);
                 String login = fields[1];
                 String senha = fields[2];
 
@@ -98,7 +98,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
             String line = br.readLine();
             while (line != null) {
                 String[] fields = line.split(";");
-                String idSerie = fields[0];
+                String idSerie = this.normalizarTexto(fields[0]);
                 String nome = fields[1];
                 String dataLancamento = fields[2];
 
@@ -133,7 +133,7 @@ public class LeitorArquivos implements ILeitorDeArquivo {
             String line = br.readLine();
             while (line != null) {
                 String[] fields = line.split(";");
-                String idFilme = fields[0];
+                String idFilme = this.normalizarTexto(fields[0]);
                 String nome = fields[1];
                 String dataLancamento = fields[2];
                 String duracaoEmMin = fields[3];
@@ -150,5 +150,24 @@ public class LeitorArquivos implements ILeitorDeArquivo {
         } catch (IOException e) {
             throw new Exception("Não foi possível realizar a leitura do arquivo de filmes.");
         }
+    }
+
+    /**
+     * Método interno para normalizar o texto recebido, necessário pois algumas
+     * strings do arquivo texto continham caracteres indefinidos e geravam
+     * inconsistências no funcionamento do sistema.
+     * 
+     * @param texto O texto a ser normalizado.
+     * @return O texto normalizado pelo método.
+     */
+    private String normalizarTexto(String texto) {
+        String textoResposta = "";
+        for (char c : texto.toCharArray()) {
+            if (Character.isLetter(c) || Character.isDigit(c)) {
+                textoResposta += c;
+            }
+        }
+
+        return textoResposta;
     }
 }
