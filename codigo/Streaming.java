@@ -43,6 +43,7 @@ public class Streaming {
             this.leitorDeArquivo.lerArquivosAudiencia(this.usuarios, this.conteudos);
             this.conteudos = this.leitorDeArquivo.lerArquivosFilme(this.conteudos);
         } catch (Exception e) {
+            System.out.println("Não foi possível popular os dados.");
             System.out.println(e.getMessage());
         }
     }
