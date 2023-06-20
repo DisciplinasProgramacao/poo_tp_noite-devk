@@ -221,13 +221,43 @@ public class App {
 
                     }
             break;
-            }
-        case 2:
-        limparTela();
-        MenuRelatorio();
+        }
+            case 2:
+            limparTela();
+            Relatorio relatorio = new Relatorio();
+            LeitorArquivos leitor = new LeitorArquivos();
+            switch( MenuRelatorio()){
+
+            case 1:
+            System.out.println("Qual cliente assistiu mais mídias, e quantas mídias:" + "\n");
+            Map<String, Cliente> clientes = leitor.lerArquivosEspectadores();
+            relatorio.obterClientesComMaisMidias(clientes);
+            break;
+
+            case 2:
+            System.out.println("Qual cliente tem mais avalições, e quantas avaliações:" + "\n");
+            Map<String, Cliente> clientes = leitor.lerArquivosEspectadores();
+            relatorio.obterClientesComMaisAvaliacoes(clientes);
+            break;
+
+            case 3:
+            System.out.println("Qual a porcentagem dos clientes com pelo menos 15 avaliações:" + "\n");
+            Map<String, Cliente> clientes = leitor.lerArquivosEspectadores();
+            relatorio.obterPorcentagemClientesComNumeroMinimoAvaliacoes(clientes, 15);
+            break;
+            };
+            
+            case 4:
+            System.out.println("Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente:" + "\n");
+            //Map<String, Cliente> conteudo = leitor.lerArquivos;
+            //relatorio.obterConteudosMaisAssistidos(clientes, 15);
+            break;
+            };
+            
+        
         break;
-       } 
-    }
+       }
+} 
 
     
     private static void adicionarConteudoAosFavoritosDoUsuario(Conteudo conteudo, Cliente usuarioLogado) {
@@ -277,26 +307,5 @@ public class App {
                 + "\n" + "0 - Voltar");
                 int operacao = sc.nextInt();
         return operacao;
-    }
-
-    /*Temporário: pode excluir */
-    private static void imprimirOperacoes(String usernameUsuarioLogado) {
-        if (usernameUsuarioLogado != null) {
-            System.out.println("\nUsuário logado: " + usernameUsuarioLogado + "\n");
-        }
-        System.out.println("Digite:" + "\n" + "1 - Fazer Login!" + "\n" + "2 - Adicionar a lista de favoritos!" + "\n"
-                + "3 - Remover da lista de favoritos!" + "\n" + "4 - Buscar Mídia assistida por Nome!" + "\n"
-                + "5 - Buscar Mídia assistida por Gênero!" + "\n" + "6 - Buscar Mídia assistida por Idioma!" + "\n"
-                + "7 - Buscar Mídia para assistir por Nome!" + "\n" + "8 - Buscar Mídia para assistir por Gênero!"
-                + "\n" + "9 - Buscar Mídia para assistir por Idioma!" + "\n" + "10 - Avaliar mídia!" + "\n"
-                + "11 - Relatorio: Qual cliente assistiu mais mídias, e quantas mídias!" + "\n"
-                + "12 - Relatorio: Qual cliente tem mais avaliações, e quantas avaliações!" + "\n"
-                + "13 - Relatorio: Qual a porcentagem dos clientes com pelo menos 15 avaliações!" + "\n"
-                + "14 - Relatorio: Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente!"
-                + "\n"
-                + "15 - Relatorio: Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero!"
-                + "\n"
-                + "16 - Relatorio: Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero!"
-                + "\n" + "0 - Parar!");
     }
 }
