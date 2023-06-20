@@ -13,33 +13,33 @@ public class App {
         Streaming streaming = new Streaming(leitorDeArquivo);
         Cliente usuarioLogado = null;
         
-        
+       
+        limparTela();
+        boolean credenciaisInvalidas = true;
+            do {
+                    System.out.println("Digite o nome de usuário: ");
+                    String usuario = sc.next();
+                    System.out.println("Digite a senha: ");
+                    String senha = sc.next();
+
+                if (!streaming.fazerLogin(usuario, senha)) {
+                            System.out.println("Credenciais inválidas.");
+                 } else {
+                        System.out.println("Login realizado com sucesso!\n");
+                        usuarioLogado = streaming.getUsuarioLogado();
+                        credenciaisInvalidas = false;
+                     }
+                } while (credenciaisInvalidas);
+                    
+
        switch(MenuPrincipal()){
         case 1:
-                    limparTela();
-                    boolean credenciaisInvalidas = true;
-                    do {
-                        System.out.println("Digite o nome de usuário: ");
-                        String usuario = sc.next();
-                        System.out.println("Digite a senha: ");
-                        String senha = sc.next();
-
-                        if (!streaming.fazerLogin(usuario, senha)) {
-                            System.out.println("Credenciais inválidas.");
-                        } else {
-                            System.out.println("Login realizado com sucesso!\n");
-                            usuarioLogado = streaming.getUsuarioLogado();
-                            credenciaisInvalidas = false;
-                        }
-                    } while (credenciaisInvalidas);
-                    break;
-        case 2:
         limparTela();
         switch(MenuCliente()){
             case 1:
             limparTela();
-                    if (streaming.getUsuarioLogado() == null) {
-                        System.out.println("Faça login antes de utilizar essa opção!\n");
+                    if (usuarioLogado == null) {
+                        ifNotLoginMsg();
                     } else {
 
                         System.out.println("Digite o id do conteúdo que deseja adicionar aos favoritos: ");
@@ -59,7 +59,7 @@ public class App {
             case 2:
             limparTela();
                     if (usuarioLogado == null) {
-                        System.out.println("Faça login antes de utilizar essa opção!");
+                        ifNotLoginMsg();
                     } else {
                         System.out.println("Digite o id do conteúdo que deseja remover dos favoritos: ");
                         String idConteudo = sc.next();
@@ -83,7 +83,7 @@ public class App {
             case 3:
                     limparTela();
                     if (usuarioLogado == null) {
-                        System.out.println("Faça login antes de utilizar essa opção!");
+                        ifNotLoginMsg();
                     } else {
                         System.out.println("Digite o nome da mídia que deseja buscar: ");
                         String nomeMidia = sc.next();
@@ -108,7 +108,7 @@ public class App {
             case 4:
                     limparTela();
                     if (usuarioLogado == null) {
-                        System.out.println("Faça login antes de utilizar essa opção!");
+                        ifNotLoginMsg();
                     } else {
                         System.out.println("Digite o tipo de gênero que deseja buscar: ");
                         String genreMidia = sc.next();
@@ -130,7 +130,7 @@ public class App {
             case 5:
                     limparTela();
                     if (usuarioLogado == null) {
-                        System.out.println("Faça login antes de utilizar essa opção!");
+                        ifNotLoginMsg();
                     } else {
                         System.out.println("Digite o idioma que deseja buscar: ");
                         String languageMidia = sc.next();
@@ -152,7 +152,7 @@ public class App {
             case 6:
                     limparTela();
                     if (usuarioLogado == null) {
-                        System.out.println("Faça login antes de utilizar essa opção!");
+                        ifNotLoginMsg();
                     } else {
                         System.out.println("Digite o nome da mídia que deseja buscar: ");
                         String nomeMidia = sc.next();
@@ -170,7 +170,7 @@ public class App {
             case 7:
                     limparTela();
                     if (usuarioLogado == null) {
-                        System.out.println("Faça login antes de utilizar essa opção!");
+                        ifNotLoginMsg();
                     } else {
                         System.out.println("Digite o gênero da mídia que deseja buscar: ");
                         String generoMidia = sc.next();
@@ -188,7 +188,7 @@ public class App {
             case 8:
                     limparTela();
                     if (usuarioLogado == null) {
-                        System.out.println("Faça login antes de utilizar essa opção!");
+                        ifNotLoginMsg();
                     } else {
                         System.out.println("Digite o idioma da mídia que deseja buscar: ");
                         String idiomaMidia = sc.next();
@@ -206,7 +206,7 @@ public class App {
             case 9:
             limparTela();
             if (usuarioLogado == null) {
-                        System.out.println("Faça login antes de utilizar essa opção!");
+                        ifNotLoginMsg();
                     } else {
                         System.out.println("Digite o ID da mídia que deseja avaliar: ");
                         String idMidia = sc.next();
@@ -222,7 +222,7 @@ public class App {
                     }
             break;
             }
-        case 3:
+        case 2:
         limparTela();
         MenuRelatorio();
         break;
@@ -244,10 +244,15 @@ public class App {
     }
 
     private static int MenuPrincipal() {  
-        System.out.println("Digite:" + "\n" + "1 - Fazer Login" + "\n" + "2 - Menu Cliente" + "\n"
-                + "3 - Menu Relatórios" + "\n");
+        System.out.println("Digite:" + "\n" +  "1 - Menu Cliente" + "\n"
+                + "2 - Menu Relatórios" + "\n");
          int operacao = sc.nextInt();
         return operacao;
+}
+
+    private static String ifNotLoginMsg(){
+    String msg = "Faça login antes de utilizar essa opção!";
+    return msg;
 }
 
     private static int MenuCliente() {
