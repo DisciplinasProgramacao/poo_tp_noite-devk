@@ -50,7 +50,7 @@ Atualizado em 26/05/2023
 | ----------- | ----------- | ----------- |
 | 1. Funcionalidade do Menu | Sérgio | ⚪ |
 | 2. Relatório com 10 mídias com mais vizualizações em ordem decrescente, separadas por gênero | Lucas | ⚪ |
-| 3. Permitir visualizar as minhas listas assistidos | Lucas | ⚪ |
+| 3. Permitir visualizar as minhas listas assistidos | Lucas | 🟢 |
 | 4. Adicionar excessões no App (Try/Catch) | Pedro | ⚪ |
 | 5. Ajustar método de avaliar método sem mensagem na classe principal, interfaces com método a mais  | Sérgio | ⚪ |
 | 6. Verificar se o cliente ao avaliar é especialista | Francisco | ⚪ |
