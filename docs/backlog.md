@@ -41,6 +41,16 @@ Atualizado em 26/05/2023
 | 21. Atualização do diagrama para contemplar todos os requisitos implementados, 1 para cada implementação, ao todo 4 atualizações do diagrama. (João disse que é obrigatorio ter a evolução, se não perdemos ponto) | Pedro | 🟢 |
 | 22. Limitação do idioma dos conteúdos utilizando um enumerador | Lucas | 🟢 |
 ----
-
+|  | Pós avaliação do Caram em sala |  |
+| Tarefa      | Responsável | Status |
+| ----------- | ----------- | ----------- |
+| 1. Funcionalidade do Menu | Sérgio e Pedro | ⚪ |
+| 2. Relatório com 10 mídias com mais vizualizações em ordem decrescente, separadas por gênero | Lucas | ⚪ |
+| 3. Permitir visualizar as minhas listas assistidos | Lucas | ⚪ |
+| 4. Adicionar excessões no App (Try/Catch) | Pedro | ⚪ |
+| 5. Ajustar método de avaliar (método sem mensagem na classe principal, interfaces com método a mais  | Sérgio | ⚪ |
+| 6. Verificar se o cliente ao avaliar é especialista | Francisco | ⚪ |
+| 7. Mudar relatórios para usar stream |  | 🔴 |
+| 8. Dois relatórios iguais, passar método por parâmetro  | Pedro | ⚪ |
 
 
