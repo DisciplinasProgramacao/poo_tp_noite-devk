@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import codigo.CustomTypes.ClientesComMaisAvaliacoes;
 import codigo.CustomTypes.ClientesComMaisMidiasAssistidas;
@@ -168,11 +169,37 @@ public class Relatorio implements IRelatorio {
         }}
         return  conteudosComAMelhorMediaComNumeroMinimoVezesVistoPorGenero;
     }
-            
-            
-  
-  
-            }
+
+    /**
+     * Método para obtenção das mídias com mais visualizações separadas por gênero,
+     * em ordem decrescente.
+     * 
+     * @param conteudos    O mapa de conteúdos em que deseja verificar quais possuem
+     *                     o maior número de visualizações, separados
+     *                     individualmente por gênero.
+     * @param numConteudos O número de conteúdos com mais visualizações em que
+     *                     deseja obter. Ex.: Top 10 conteúdos com maior número de
+     *                     visualizações separados por gênero, top 15 conteúdos etc.
+     * 
+     * @return Um mapa contendo o gênero como chave de identificador para a lista
+     *         dos conteúdos com maior número de visualizações.
+     */
+    public Map<Genero, List<Conteudo>> obterConteudosComMaisVisualizacoesSeparadasPorGenero(
+            Map<String, Conteudo> conteudos, int numConteudos) {
+        Map<Genero, List<Conteudo>> conteudosComMaisVisualizacoesSeparadosPorGenero = new HashMap<>();
+
+        for (Genero genero : Genero.values()) {
+            List<Conteudo> listaGenero = conteudos.values().stream().filter(conteudo -> conteudo.genero.equals(genero))
+                    .collect(Collectors.toList());
+            listaGenero.sort(Comparator.comparingLong(Conteudo::getNumVisualizacoes).reversed());
+            List<Conteudo> conteudosMaisAssistidos = listaGenero.subList(0, Math.min(numConteudos, listaGenero.size()));
+
+            conteudosComMaisVisualizacoesSeparadosPorGenero.put(genero, conteudosMaisAssistidos);
+        }
+
+        return conteudosComMaisVisualizacoesSeparadosPorGenero;
+    }
+}
 
 
       
