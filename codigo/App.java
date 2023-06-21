@@ -5,15 +5,26 @@ import java.util.*;
 import codigo.Interfaces.ILeitorDeArquivo;
 
 public class App {
-   static Scanner sc = new Scanner(System.in);
- public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
 
-        
+        Scanner sc = new Scanner(System.in);
+
+        int operacao = 1;
+
         ILeitorDeArquivo leitorDeArquivo = new LeitorArquivos();
         Streaming streaming = new Streaming(leitorDeArquivo);
         Cliente usuarioLogado = null;
-        
-       
+
+        limparTela();
+
+       MenuPrincipal();
+       operacao = sc.nextInt();
+while(operacao != 0){
+       while(operacao != 0){
+
+        switch(operacao){
+        case 1:
         limparTela();
         boolean credenciaisInvalidas = true;
             do {
@@ -29,13 +40,14 @@ public class App {
                         usuarioLogado = streaming.getUsuarioLogado();
                         credenciaisInvalidas = false;
                      }
-                } while (credenciaisInvalidas);
-                    
+            } while (credenciaisInvalidas);
 
-       switch(MenuPrincipal()){
-        case 1:
+
+        case 2:
         limparTela();
-        switch(MenuCliente()){
+        MenuCliente();
+       operacao = sc.nextInt();
+        switch(operacao){
             case 1:
             limparTela();
                     if (usuarioLogado == null) {
@@ -53,8 +65,8 @@ public class App {
                         adicionarConteudoAosFavoritosDoUsuario(conteudoParaAdicionar, streaming.getUsuarioLogado());
                         System.out.println("Conteúdo adicionado aos favoritos!");
                     }
-
             break;
+
             case 2:
             limparTela();
                     if (usuarioLogado == null) {
@@ -209,14 +221,12 @@ public class App {
                     } else {
                         System.out.println("Digite o ID da mídia que deseja avaliar: ");
                         String idMidia = sc.next();
-                        System.out.println("Digite a mensagem:");
-                        String mensagem = sc.next();
                         System.out.println("Digite uma nota de 1-5 para avaliar: ");
                         int notaAvaliacao = sc.nextInt();
 
                         Conteudo midia = streaming.obterConteudoPorId(idMidia);
 
-                        usuarioLogado.avaliarMidia(midia, notaAvaliacao, mensagem);
+                        usuarioLogado.avaliarMidia(midia, notaAvaliacao);
 
                     }
             break;
@@ -235,82 +245,144 @@ public class App {
                         }
                     }
                 }
-                break;
+            break;
         }
-            case 2:
+        case 3:
+            MenuRelatorio();
+            operacao = sc.nextInt();
+
+
             limparTela();
             Relatorio relatorio = new Relatorio();
             LeitorArquivos leitor = new LeitorArquivos();
-            switch( MenuRelatorio()){
+            Map<String, Cliente> clientes = leitor.lerArquivosEspectadores();
+            Map<String, Conteudo> conteudo = new HashMap<>();
+            conteudo.putAll(leitor.lerArquivosSerie());
+            conteudo.putAll(leitor.lerArquivosFilme());
+            
+            switch(operacao){
 
             case 1:
             System.out.println("Qual cliente assistiu mais mídias, e quantas mídias:" + "\n");
-            Map<String, Cliente> clientes = leitor.lerArquivosEspectadores();
             relatorio.obterClientesComMaisMidias(clientes);
             break;
 
             case 2:
             System.out.println("Qual cliente tem mais avalições, e quantas avaliações:" + "\n");
-            Map<String, Cliente> clientes = leitor.lerArquivosEspectadores();
             relatorio.obterClientesComMaisAvaliacoes(clientes);
             break;
 
             case 3:
             System.out.println("Qual a porcentagem dos clientes com pelo menos 15 avaliações:" + "\n");
-            Map<String, Cliente> clientes = leitor.lerArquivosEspectadores();
             relatorio.obterPorcentagemClientesComNumeroMinimoAvaliacoes(clientes, 15);
             break;
-            };
             
             case 4:
             System.out.println("Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente:" + "\n");
-            //Map<String, Cliente> conteudo = leitor.lerArquivos;
-            //relatorio.obterConteudosMaisAssistidos(clientes, 15);
+            relatorio.obterConteudosMaisAssistidos(conteudo, 10);
             break;
-            };
-            
-        break;
-       }
 
+            case 5:
+            System.out.println("Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente separadas por gênero" + "\n");
+            relatorio.obterConteudosComMelhorMedia(conteudo,100,10);
+            break;
+            case 6:
+            System.out.println("Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero");
+            relatorio.obterConteudosComMelhorMediaVistopeloMenosCem(conteudo, 100, 10);
+            break;
+        } 
+            break;
+
+    }
+}
+    operacao = -1;
+    MenuPrincipal();
+    operacao = sc.nextInt();
+}
+        
     
-    private static void adicionarConteudoAosFavoritosDoUsuario(Conteudo conteudo, Cliente usuarioLogado) {
-        usuarioLogado.conteudosParaAssistir.add(conteudo);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public static void limparTela() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+    private static void adicionarConteudoAosFavoritosDoUsuario(Conteudo conteudo, Cliente usuarioLogado) {
+        usuarioLogado.conteudosParaAssistir.add(conteudo);
+    }
 
     private static boolean removerConteudoAosFavoritosDoUsuario(Conteudo conteudo, Cliente usuarioLogado) {
         return usuarioLogado.removerListaConteudosParaAssistir(conteudo);
     }
 
-    private static int MenuPrincipal() {  
-        System.out.println("Digite:" + "\n" +  "1 - Menu Cliente" + "\n"
-                + "2 - Menu Relatórios" + "\n");
-         int operacao = sc.nextInt();
-        return operacao;
-}
+     private static String ifNotLoginMsg() {
+        String msg = "Faça login antes de utilizar essa opção!";
+        return msg;
+    }
 
-    private static String ifNotLoginMsg(){
-    String msg = "Faça login antes de utilizar essa opção!";
-    return msg;
-}
+    private static void MenuPrincipal() {
+        System.out.println("Digite:" + "\n" + "1 - Login" +"\n" + "2 - Menu Cliente" + "\n"
+                + "3 - Menu Relatórios" + "\n" + "0 - Para finalizar" + "\n");
+    }
 
-    private static int MenuCliente() {
+    private static void MenuCliente() {
         System.out.println("1 - Adicionar a lista de favoritos!" + "\n"
                 + "2 - Remover da lista de favoritos!" + "\n" + "3 - Buscar Mídia assistida por Nome!" + "\n"
                 + "4 - Buscar Mídia assistida por Gênero!" + "\n" + "5 - Buscar Mídia assistida por Idioma!" + "\n"
                 + "6 - Buscar Mídia para assistir por Nome!" + "\n" + "7 - Buscar Mídia para assistir por Gênero!"
-                + "\n" + "8 - Buscar Mídia para assistir por Idioma!" + "\n" + "9 - Avaliar mídia!" + "\n" 
+                + "\n" + "8 - Buscar Mídia para assistir por Idioma!" + "\n" + "9 - Avaliar mídia!" + "\n"
                 + "10 - Visualizar conteúdos assistidos\n" + "0 - Voltar");
-                int operacao = sc.nextInt();
-        return operacao;
     }
 
-    private static int MenuRelatorio() {
-        System.out.println("Digite:" + "\n" + "1 - Relatorio: Qual cliente assistiu mais mídias, e quantas mídias!" + "\n"
+    private static void MenuRelatorio() {
+        System.out.println("Digite:" + "\n" + "1 - Relatorio: Qual cliente assistiu mais mídias, e quantas mídias!"
+                + "\n"
                 + "2 - Relatorio: Qual cliente tem mais avaliações, e quantas avaliações!" + "\n"
                 + "3 - Relatorio: Qual a porcentagem dos clientes com pelo menos 15 avaliações!" + "\n"
                 + "4 - Relatorio: Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100 vezes, apresentadas em ordem decrescente!"
@@ -319,7 +391,5 @@ public class App {
                 + "\n"
                 + "6 - Relatorio: Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero!"
                 + "\n" + "0 - Voltar");
-                int operacao = sc.nextInt();
-        return operacao;
     }
 }

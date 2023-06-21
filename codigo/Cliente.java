@@ -43,7 +43,7 @@ public abstract class Cliente {
      * @param notaAvaliacao     A nota da avaliação dada pelo cliente
      * @param mensagemAvaliacao A mensagem de avaliação deixada pelo cliente
      */
-    public abstract void avaliarMidia(Conteudo midia, int notaAvaliacao, String mensagemAvaliacao);
+    public abstract void avaliarMidia(Conteudo midia, int notaAvaliacao);
 
     /**
      * Método para obter a quantidade de mídias assistidas pelo cliente.

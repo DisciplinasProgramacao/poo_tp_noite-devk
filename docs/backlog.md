@@ -14,7 +14,7 @@ Atualizado em 26/05/2023
 | 7. Criação do Backlog do Projeto em Markdown |   Sérgio   |   🟢  |
 | 8. Atualização do diagrama original para contemplar requisito de carga de dados   |   Lucas | 🟢  |
 | 9. Implementação do cadastro de clientes, filmes e séries |   Francisco |   🟢 |
-| 10. Salvar dados de clientes, filmes e séries  |   | 🟢 | 
+| 10. Salvar dados de clientes, filmes e séries  |  Sergio | 🟢 | 
 | 11. Um cliente não pode avaliar a mesma mídia duas vezes   | Lucas | 🟢 |
 | 12. Atualização do diagrama original para contemplar requisito de avaliação   |  Lucas  | 🟢 |
 | 13. Os gêneros de mídias devem ser limitados à esta lista: Ação, Anime, Aventura, Comédia, Documentário, Drama, Policial, Romance e Suspense      | Pedro | 🟢 |
@@ -48,11 +48,11 @@ Atualizado em 26/05/2023
 |  | Pós avaliação do Caram em sala |  |
 | Tarefa      | Responsável | Status |
 | ----------- | ----------- | ----------- |
-| 1. Funcionalidade do Menu | Sérgio | ⚪ |
+| 1. Funcionalidade do Menu | Sérgio | 🟢 |
 | 2. Relatório com 10 mídias com mais vizualizações em ordem decrescente, separadas por gênero | Lucas | ⚪ |
 | 3. Permitir visualizar as minhas listas assistidos | Lucas | 🟢 |
 | 4. Adicionar excessões no App (Try/Catch) | Pedro | ⚪ |
-| 5. Ajustar método de avaliar método sem mensagem na classe principal, interfaces com método a mais  | Sérgio | ⚪ |
+| 5. Ajustar método de avaliar método sem mensagem na classe principal, interfaces com método a mais  | Sérgio | 🟢 |
 | 6. Verificar se o cliente ao avaliar é especialista | Francisco | ⚪ |
 | 7. Mudar relatórios para usar stream |  | 🔴 |
 | 8. Dois relatórios iguais, passar método por parâmetro  | Pedro | ⚪ |

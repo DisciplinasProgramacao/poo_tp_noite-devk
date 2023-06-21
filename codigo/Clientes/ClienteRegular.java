@@ -11,7 +11,7 @@ public class ClienteRegular extends Cliente {
     }
 
     @Override
-    public void avaliarMidia(Conteudo midia, int notaAvaliacao, String mensagemAvaliacao) {
+    public void avaliarMidia(Conteudo midia, int notaAvaliacao) {
         if (notaAvaliacao < Avaliacao.NOTA_MIN_AVALIACAO || notaAvaliacao > Avaliacao.NOTA_MAX_AVALIACAO)
             return;
 
