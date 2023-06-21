@@ -121,6 +121,7 @@ while(operacao != 0){
                     if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
+                        try{
                         System.out.println("Digite o tipo de gênero que deseja buscar: ");
                         String genreMidia = sc.next();
                         List<Conteudo> conteudoBuscado = usuarioLogado.buscarConteudoAssistidoPorGenero(Genero.valueOf(genreMidia.toLowerCase()));
@@ -136,6 +137,13 @@ while(operacao != 0){
                             }
                         }
                         System.out.println("\n");
+                        }catch(NullPointerException e) {
+                    System.out.println("Não insira um texto nulo!");
+                    }catch(InputMismatchException e) {
+                     System.out.println("Esse não é o texto esperado, insira: Ação, Anime, Aventura, Comédia, Documentário, Drama, Policial, Romance ou Suspense");
+                    }catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
+                    }
                     }
             break;
             case 5:
@@ -143,10 +151,11 @@ while(operacao != 0){
                     if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
-                        System.out.println("Digite o idioma que deseja buscar: ");
-                        String languageMidia = sc.next();
-                        List<Conteudo> conteudoBuscado = usuarioLogado.buscarConteudoAssistidoPorIdioma(Idioma.valueOf(languageMidia.toLowerCase()));
-                        if (conteudoBuscado.size() == 0) {
+                        try{
+                            System.out.println("Digite o idioma que deseja buscar: ");
+                            String languageMidia = sc.next();
+                            List<Conteudo> conteudoBuscado = usuarioLogado.buscarConteudoAssistidoPorIdioma(Idioma.valueOf(languageMidia.toLowerCase()));
+                            if (conteudoBuscado.size() == 0) {
                             System.out.println("Não foi encontrado nenhum conteúdo assistido neste idioma");
                         } else {
                             System.out.println("\nConteúdos assistidos nesse idioma foram: ");
@@ -159,7 +168,15 @@ while(operacao != 0){
                         }
                         System.out.println();
                     }
-            break;
+                    catch(NullPointerException e) {
+                    System.out.println("Não insira um texto nulo!");
+                    }catch(InputMismatchException e) {
+                    System.out.println("Esse não é o texto esperado, insira: Portugês, Inglês, Espanhol, Francês ou Italiano" );
+                    }catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
+                    }
+                        break;
+                    }
             case 6:
                     limparTela();
                     if (usuarioLogado == null) {
@@ -183,6 +200,7 @@ while(operacao != 0){
                     if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
+                        try{
                         System.out.println("Digite o gênero da mídia que deseja buscar: ");
                         String generoMidia = sc.next();
                         List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorGenero(Genero.valueOf(generoMidia.toLowerCase()));
@@ -194,6 +212,13 @@ while(operacao != 0){
                                     + conteudo.dataLancamento);
                         }
                         System.out.println();
+                        }catch(NullPointerException e) {
+                    System.out.println("Não insira um texto nulo!");
+                    }catch(InputMismatchException e) {
+                     System.out.println("Esse não é o texto esperado, insira: Ação, Anime, Aventura, Comédia, Documentário, Drama, Policial, Romance ou Suspense");
+                    }catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
+                    }
                     }
             break;
             case 8:
@@ -201,6 +226,7 @@ while(operacao != 0){
                     if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
+                        try{
                         System.out.println("Digite o idioma da mídia que deseja buscar: ");
                         String idiomaMidia = sc.next();
                         List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorIdioma(Idioma.valueOf(idiomaMidia.toLowerCase()));
@@ -212,7 +238,15 @@ while(operacao != 0){
                                     + conteudo.dataLancamento);
                         }
                         System.out.println();
+                    }catch(NullPointerException e) {
+                    System.out.println("Não insira um texto nulo!");
+                    }catch(InputMismatchException e) {
+                    System.out.println("Esse não é o texto esperado, insira: Portugês, Inglês, Espanhol, Francês ou Italiano" );
+                    }catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
                     }
+                    }
+                }
             break;
             case 9:
             limparTela();
@@ -299,60 +333,26 @@ while(operacao != 0){
     MenuPrincipal();
     operacao = sc.nextInt();
 }
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
+
+
 
     public static void limparTela() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                // Para limpar o console do sistema operacional
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                } else {
+                // limpar tela
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+                } 
+            }catch (Exception e) {
+            System.out.println(e.getMessage());
+                }
+        }
+    
     private static void adicionarConteudoAosFavoritosDoUsuario(Conteudo conteudo, Cliente usuarioLogado) {
         usuarioLogado.conteudosParaAssistir.add(conteudo);
     }

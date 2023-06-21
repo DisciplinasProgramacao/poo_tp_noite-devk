@@ -46,14 +46,14 @@ Atualizado em 26/05/2023
 |  | Pós avaliação do Caram em sala |  |
 | Tarefa      | Responsável | Status |
 | ----------- | ----------- | ----------- |
-| 1. Funcionalidade do Menu | Sérgio | 🟢 |
+| 1. Funcionalidade do Menu | Sérgio e Pedro | 🟢 |
 | 2. Relatório com 10 mídias com mais vizualizações em ordem decrescente, separadas por gênero | Lucas | ⚪ |
 | 3. Permitir visualizar as minhas listas assistidos | Lucas | 🟢 |
-| 4. Adicionar excessões no App (Try/Catch) | Pedro | ⚪ |
+| 4. Adicionar excessões no App (Try/Catch) | Pedro | 🟢 |
 | 5. Ajustar método de avaliar método sem mensagem na classe principal, interfaces com método a mais  | Sérgio | 🟢 |
 | 6. Verificar se o cliente ao avaliar é especialista | Francisco | ⚪ |
 | 7. Mudar relatórios para usar stream |  | 🔴 |
 | 8. Dois relatórios iguais, passar método por parâmetro  | Pedro | ⚪ |
-| 9. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Lucas |🟢  | |
+| 9. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Lucas | 🟢 |
 
 
