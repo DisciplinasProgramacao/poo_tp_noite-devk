@@ -14,7 +14,7 @@ Atualizado em 26/05/2023
 | 7. Criação do Backlog do Projeto em Markdown |   Sérgio   |   🟢  |
 | 8. Atualização do diagrama original para contemplar requisito de carga de dados   |   Lucas | 🟢  |
 | 9. Implementação do cadastro de clientes, filmes e séries |   Francisco |   🟢 |
-| 10. Salvar dados de clientes, filmes e séries  |  Sergio | 🟢 | 
+| 10. Salvar dados de clientes, filmes e séries  | Lucas | 🟢 | 
 | 11. Um cliente não pode avaliar a mesma mídia duas vezes   | Lucas | 🟢 |
 | 12. Atualização do diagrama original para contemplar requisito de avaliação   |  Lucas  | 🟢 |
 | 13. Os gêneros de mídias devem ser limitados à esta lista: Ação, Anime, Aventura, Comédia, Documentário, Drama, Policial, Romance e Suspense      | Pedro | 🟢 |
@@ -39,10 +39,8 @@ Atualizado em 26/05/2023
 
 | Tarefa      | Responsável | Status |
 | ----------- | ----------- | ----------- |
-
 | 6. Implementação do protótipo de sistema cobrindo os requisitos   |   Grupo    | ⚪ |
 | 7. Garantir a robustez do sistema principal   |   Grupo    | ⚪ |
-| 16. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Sérgio  |⚪ | |
 
 ----
 |  | Pós avaliação do Caram em sala |  |
@@ -56,5 +54,6 @@ Atualizado em 26/05/2023
 | 6. Verificar se o cliente ao avaliar é especialista | Francisco | ⚪ |
 | 7. Mudar relatórios para usar stream |  | 🔴 |
 | 8. Dois relatórios iguais, passar método por parâmetro  | Pedro | ⚪ |
+| 9. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Lucas |🟢  | |
 
 
