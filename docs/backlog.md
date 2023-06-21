@@ -53,7 +53,7 @@ Atualizado em 26/05/2023
 | 5. Ajustar método de avaliar método sem mensagem na classe principal, interfaces com método a mais  | Sérgio | 🟢 |
 | 6. Verificar se o cliente ao avaliar é especialista | Francisco | ⚪ |
 | 7. Mudar relatórios para usar stream |  | 🔴 |
-| 8. Dois relatórios iguais, passar método por parâmetro  | Pedro | ⚪ |
+| 8. Dois relatórios iguais, passar método por parâmetro | Pedro | ⚪ |
 | 9. Quais são as 10 mídias com mais visualizações, em ordem decrescente, separadas por gênero | Lucas | 🟢 |
 
 
