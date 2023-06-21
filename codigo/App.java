@@ -53,6 +53,7 @@ while(operacao != 0){
                     if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
+                        try{
                         System.out.println("Digite o id do conteúdo que deseja adicionar aos favoritos: ");
                         String idConteudo = sc.next();
 
@@ -64,6 +65,9 @@ while(operacao != 0){
 
                         adicionarConteudoAosFavoritosDoUsuario(conteudoParaAdicionar, streaming.getUsuarioLogado());
                         System.out.println("Conteúdo adicionado aos favoritos!");
+                        }catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
+                    }
                     }
             break;
 
@@ -72,6 +76,7 @@ while(operacao != 0){
                     if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
+                        try{
                         System.out.println("Digite o id do conteúdo que deseja remover dos favoritos: ");
                         String idConteudo = sc.next();
 
@@ -89,6 +94,9 @@ while(operacao != 0){
                         } else {
                             System.out.println("Usuário não possui conteúdo com o id especificado nos favoritos.");
                         }
+                        }catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
+                    }
                     }
             break;
             case 3:
@@ -96,6 +104,7 @@ while(operacao != 0){
                     if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
+                        try{
                         System.out.println("Digite o nome da mídia que deseja buscar: ");
                         String nomeMidia = sc.next();
 
@@ -114,6 +123,9 @@ while(operacao != 0){
                             }
                         }
                         System.out.println();
+                        }catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
+                    }
                     }
             break;
             case 4:
@@ -182,6 +194,7 @@ while(operacao != 0){
                     if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
+                        try{
                         System.out.println("Digite o nome da mídia que deseja buscar: ");
                         String nomeMidia = sc.next();
                         List<Conteudo> conteudoBuscado = streaming.buscarConteudoPorNome(nomeMidia.toLowerCase());
@@ -193,6 +206,9 @@ while(operacao != 0){
                                     + conteudo.dataLancamento);
                         }
                         System.out.println();
+                    }catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
+                    }
                     }
             break;
             case 7:
@@ -253,6 +269,7 @@ while(operacao != 0){
             if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
+                        try{
                         System.out.println("Digite o ID da mídia que deseja avaliar: ");
                         String idMidia = sc.next();
                         System.out.println("Digite uma nota de 1-5 para avaliar: ");
@@ -261,6 +278,9 @@ while(operacao != 0){
                         Conteudo midia = streaming.obterConteudoPorId(idMidia);
 
                         usuarioLogado.avaliarMidia(midia, notaAvaliacao);
+                        }catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
+                    }
 
                     }
             break;
@@ -269,6 +289,7 @@ while(operacao != 0){
                 if (usuarioLogado == null) {
                     ifNotLoginMsg();
                 } else {
+                    try{
                     List<Conteudo> conteudosAssistidos = usuarioLogado.conteudosAssistidos;
                     if (conteudosAssistidos.size() < 0) {
                         System.out.println("Você não possui nenhum conteúdo assistido!");
@@ -277,6 +298,8 @@ while(operacao != 0){
                         for (Conteudo conteudo : conteudosAssistidos) {
                             System.out.println(conteudo.nome + ", lançado em: " + conteudo.dataLancamento);
                         }
+                    }}catch (Exception e) {
+                    System.out.println("Ocorreu um erro:\n" + e.getMessage());
                     }
                 }
             break;
