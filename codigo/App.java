@@ -262,11 +262,10 @@ while(operacao != 0){
                     System.out.println("Ocorreu um erro:\n" + e.getMessage());
                     }
                     }
-                }
-            break;
-            case 9:
-            limparTela();
-            if (usuarioLogado == null) {
+                    break;
+                    case 9:
+                    limparTela();
+                    if (usuarioLogado == null) {
                         ifNotLoginMsg();
                     } else {
                         try{
@@ -303,10 +302,11 @@ while(operacao != 0){
                     }
                 }
             break;
-        }
-        case 3:
+    }
+            case 3:
             MenuRelatorio();
             operacao = sc.nextInt();
+        }
 
 
             limparTela();
@@ -357,7 +357,6 @@ while(operacao != 0){
     operacao = sc.nextInt();
 }
 
-    }
 
 
 
